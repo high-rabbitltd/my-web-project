@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>하이래빗 캐릭터 | 유한회사 하이래빗</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-page: #f39c12; /* CI Option 4 Style */
+            --secondary-page: #e67e22;
+        }
+        
+        .char-hero {
+            padding: 120px 8% 60px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #3d2b1f 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .char-display {
+            padding: 80px 8%;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .char-image img {
+            max-width: 600px;
+            width: 100%;
+            border-radius: 40px;
+            margin-bottom: 40px;
+        }
+
+        .char-desc h2 {
+            font-size: 2.5rem;
+            color: var(--primary-page);
+            margin-bottom: 20px;
+        }
+
+        .char-desc p {
+            font-size: 1.2rem;
+            color: #475569;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="assets/logo.png" alt="High Rabbit Logo"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html#home">홈</a></li>
+                <li><a href="index.html#services">주요 사업</a></li>
+                <li><a href="index.html#about">회사 소개</a></li>
+                <li><a href="index.html#contact">오시는 길</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="char-hero">
+        <div data-aos="zoom-in">
+            <h1 style="font-size: 3rem; font-family: 'Montserrat', sans-serif;">하이래빗 공식 캐릭터</h1>
+            <p style="margin-top: 1rem; opacity: 0.8;">브랜드의 친근함과 창의성을 상징합니다.</p>
+        </div>
+    </section>
+
+    <section class="char-display">
+        <div class="char-image" data-aos="fade-up">
+            <img src="assets/character.png" alt="하이래빗 캐릭터">
+        </div>
+        <div class="char-desc" data-aos="fade-up" data-aos-delay="200">
+            <h2>지적인 호기심의 상징</h2>
+            <p>하이래빗의 공식 캐릭터는 안경과 수트를 통해 지적이고 전문적인 이미지를 전달하며,<br>토끼 특유의 영리함과 민첩함을 통해 현대 비즈니스 사회의 흐름을 빠르게 읽는 통찰력을 상징합니다.</p>
+            <br>
+            <a href="index.html" class="cta-button">홈으로 돌아가기</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-info">
+            <p><strong>유한회사 하이래빗</strong></p>
+            <p>&copy; 2026 High Rabbit. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+</body>
+</html>

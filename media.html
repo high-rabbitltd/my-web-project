@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미디어 콘텐츠 | 유한회사 하이래빗</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-page: #006666; /* CI Option 1 Style */
+            --secondary-page: #00a8a8;
+        }
+        
+        .media-hero {
+            padding: 100px 8%;
+            background: linear-gradient(135deg, #0f172a 0%, #004d4d 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .channel-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            padding: 100px 8%;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .channel-image img {
+            width: 100%;
+            border-radius: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .channel-text h2 {
+            font-size: 3rem;
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 1.5rem;
+            color: var(--primary-page);
+        }
+
+        .channel-text p {
+            font-size: 1.2rem;
+            color: #475569;
+            margin-bottom: 2rem;
+        }
+
+        .youtube-badge {
+            display: inline-block;
+            background: #ff0000;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .back-home {
+            margin-top: 50px;
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .channel-info {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="assets/logo.png" alt="High Rabbit Logo"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html#home">홈</a></li>
+                <li><a href="index.html#services">주요 사업</a></li>
+                <li><a href="index.html#about">회사 소개</a></li>
+                <li><a href="index.html#contact">오시는 길</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="media-hero">
+        <div data-aos="fade-down">
+            <span class="subtitle" style="color: #00ffcc;">MEDIA CONTENT</span>
+            <h1 style="font-size: 3.5rem; font-family: 'Montserrat', sans-serif; margin-top: 1rem;">독창적인 미디어의 세계</h1>
+        </div>
+    </section>
+
+    <section class="channel-info">
+        <div class="channel-image" data-aos="fade-right">
+            <img src="assets/media_symbol.png" alt="이슈와 상식 심볼">
+        </div>
+        <div class="channel-text" data-aos="fade-left">
+            <div class="youtube-badge">YOUTUBE CHANNEL</div>
+            <h2>이슈와 상식</h2>
+            <p>세상의 복잡한 이슈를 명쾌하게 풀어내고, 꼭 알아야 할 상식을 재미있게 전달합니다. 유한회사 하이래빗이 야심차게 준비 중인 첫 번째 유튜브 프로젝트입니다.</p>
+            <p>지적인 호기심을 채워줄 고품격 콘텐츠를 곧 만나보실 수 있습니다.</p>
+            <a href="index.html" class="cta-button">홈으로 돌아가기</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-info">
+            <p><strong>유한회사 하이래빗</strong></p>
+            <p>&copy; 2026 High Rabbit. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+</body>
+</html>
