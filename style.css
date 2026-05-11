@@ -359,6 +359,125 @@ footer {
     font-size: 0.9rem;
 }
 
+/* 주소 복사 및 공유 섹션 스타일 */
+.copy-share-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 50px;
+}
+
+.copy-url-section, .share-section {
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.copy-label {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+    color: #94a3b8;
+    font-weight: 600;
+}
+
+.copy-box {
+    display: flex;
+    background: #1e293b;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.copy-box:focus-within {
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.2);
+}
+
+#site-url {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--white);
+    padding: 1rem 1.2rem;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+#copy-btn {
+    background: var(--secondary);
+    color: var(--primary);
+    border: none;
+    padding: 0 1.5rem;
+    cursor: pointer;
+    font-weight: 700;
+    transition: var(--transition);
+}
+
+#copy-btn:hover {
+    background: #e5ad06;
+}
+
+.share-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.share-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0.9rem 1.8rem;
+    background: var(--white);
+    color: var(--primary);
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.share-btn img {
+    width: 18px;
+    filter: brightness(0);
+}
+
+.share-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.share-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.share-icon img {
+    width: 20px;
+    filter: brightness(0) invert(1);
+}
+
+.share-icon:hover {
+    background: var(--secondary);
+    border-color: var(--secondary);
+    transform: scale(1.05);
+}
+
+.share-icon:hover img {
+    filter: brightness(0);
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
     .about-content {
