@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://high-rabbitltd.com/sitemap.xml
