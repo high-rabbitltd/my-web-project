@@ -1,0 +1,11 @@
+{
+  "researcher": "qwen2.5-coder:1.5b",
+  "writer": "qwen2.5-coder-1.5b-instruct",
+  "youtube": "qwen2.5-coder-1.5b-instruct",
+  "instagram": "qwen2.5-coder-1.5b-instruct",
+  "designer": "qwen2.5-coder-1.5b-instruct",
+  "developer": "qwen2.5-coder-1.5b-instruct",
+  "business": "qwen2.5-coder-1.5b-instruct",
+  "secretary": "qwen2.5-coder-1.5b-instruct",
+  "editor": "qwen2.5-coder-1.5b-instruct"
+}
