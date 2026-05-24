@@ -514,3 +514,66 @@ footer {
         font-size: 2rem;
     }
 }
+
+/* YouTube Navigation & CTA Styles */
+nav a.nav-youtube {
+    color: #ff0000;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+}
+nav a.nav-youtube svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+    fill: currentColor;
+    transition: var(--transition);
+}
+nav a.nav-youtube:hover {
+    color: #cc0000;
+}
+nav a.nav-youtube::after {
+    background-color: #ff0000;
+}
+
+/* YouTube Share Button in Footer */
+.share-buttons .youtube-btn {
+    background: #ff0000;
+    color: var(--white);
+    border: 1px solid #ff0000;
+    box-shadow: 0 4px 14px rgba(255, 0, 0, 0.3);
+}
+.share-buttons .youtube-btn:hover {
+    background: #cc0000;
+    border-color: #cc0000;
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.45);
+}
+.share-buttons .youtube-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    transition: var(--transition);
+}
+.share-buttons .youtube-btn:hover svg {
+    filter: none;
+}
+
+/* YouTube CTA button inside subpages */
+.cta-button.youtube-cta {
+    background: #ff0000;
+    box-shadow: 0 4px 14px rgba(255, 0, 0, 0.3);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.cta-button.youtube-cta:hover {
+    background: #cc0000;
+    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.45);
+    transform: translateY(-3px);
+}
+.cta-button.youtube-cta svg {
+    margin-right: 8px;
+}
+
