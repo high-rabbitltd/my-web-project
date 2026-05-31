@@ -32,7 +32,7 @@ export default function PaymentPage({ onBack }) {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '2rem' }}>
             <div style={{ background: 'var(--glass-bg)', padding: '1.5rem', borderRadius: '12px', border: '1px solid var(--accent-color)' }}>
               <h4 style={{ color: 'var(--accent-color)' }}>단건 결제 (1회용)</h4>
-              <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', margin: '0.5rem 0' }}>한 번의 4컷 만화 생성</p>
+              <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', margin: '0.5rem 0' }}>한 번의 프리미엄 AI 꿈풀이 분석</p>
               <p style={{ fontSize: '1.2rem', fontWeight: 'bold', marginBottom: '1rem' }}>$0.99</p>
               <PayPalButtons 
                 style={{ layout: "horizontal", height: 40 }} 
@@ -47,7 +47,7 @@ export default function PaymentPage({ onBack }) {
 
             <div style={{ background: 'var(--glass-bg)', padding: '1.5rem', borderRadius: '12px', border: '1px solid var(--glass-border)' }}>
               <h4>월간 구독 (무제한)</h4>
-              <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', margin: '0.5rem 0' }}>한 달 내내 제한 없는 만화 생성 및 심층 심리 분석</p>
+              <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', margin: '0.5rem 0' }}>한 달 내내 무제한 AI 꿈풀이 및 심층 심리 분석</p>
               <p style={{ fontSize: '1.2rem', fontWeight: 'bold', marginBottom: '1rem' }}>$4.99 / 월</p>
               <PayPalButtons 
                 style={{ layout: "horizontal", height: 40 }} 
