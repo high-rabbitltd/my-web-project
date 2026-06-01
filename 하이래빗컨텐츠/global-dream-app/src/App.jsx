@@ -6,115 +6,44 @@ import AdComponent from './AdComponent';
 import PaymentPage from './PaymentPage';
 import { DREAM_CATEGORIES, FREUD_INTERPRETATIONS } from './dreamsData';
 
-const generateDynamicInterpretation = (input) => {
-  const symbols = [];
-  let symbolText = "";
-  
+const OPENAI_API_KEY = '여기에_발급받으신_API_키를_붙여넣으세요'; // ★ 여기에 API 키 입력!
+
+const fetchOpenAIInterpretation = async (input) => {
   const text = input || "";
   
-  if (text.match(/천둥|번개|벼락/)) {
-    symbols.push('천둥/번개');
-    symbolText += "번개와 천둥은 '갑작스러운 깨달음', '천운', '명성의 폭발'을 상징합니다. ";
-  }
-  
-  const countNamu = (text.match(/나무/g) || []).length;
-  const countScold = (text.match(/나무라|나무랬|나무라는/g) || []).length;
-  if (countNamu > countScold || text.includes('숲')) {
-    symbols.push('나무');
-    symbolText += "크고 울창한 나무는 '생명력', '건강', '든든한 기반', 그리고 '가문의 융성'을 상징합니다. ";
-  }
-  
-  if (text.includes('꽃')) {
-    symbols.push('꽃');
-    symbolText += "꽃은 '아름다움', '성취', '애정운', 그리고 '결실'을 상징합니다. ";
+  if (OPENAI_API_KEY === '여기에_발급받으신_API_키를_붙여넣으세요') {
+    alert('App.jsx 파일 상단에 OpenAI API 키를 먼저 입력해 주세요!');
+    return "API 키가 설정되지 않았습니다. 개발자에게 문의하세요.";
   }
 
-  if (text.match(/불이|불을|불은|불도|불나|화재|불길/)) {
-    symbols.push('불');
-    symbolText += "불은 낡은 것의 '정화'와 새로운 생명력, 그리고 '폭발적인 운세의 상승'을 상징합니다. ";
-  }
-  
-  if (text.match(/물이|물을|물은|물도|물에|바다|강/)) {
-    symbols.push('물');
-    symbolText += "물은 '무의식의 깊은 감정', '생명력', 그리고 '재물의 흐름'을 상징합니다. ";
-  }
-  
-  if (text.match(/뱀이|뱀을|뱀은|뱀도|뱀에|구렁이/)) {
-    symbols.push('뱀');
-    symbolText += "뱀은 '지혜', '강인한 생명력', '치유', 그리고 '은밀한 에너지'를 상징하는 영물입니다. ";
-  }
-  
-  if (text.match(/돈이|돈을|돈은|돈도|지폐|동전/)) {
-    symbols.push('돈');
-    symbolText += "돈은 현실에서의 '권력', '에너지', '예상치 못한 행운'을 상징합니다. ";
-  }
-  
-  if (text.match(/똥이|똥을|똥은|똥도|대변/)) {
-    symbols.push('대변');
-    symbolText += "똥은 전통적으로 비료이자 풍요의 상징으로, '막대한 재물'과 '금전운'을 의미합니다. ";
-  }
-  
-  if (text.match(/죽음|죽는|귀신|시체/)) {
-    symbols.push('죽음/재탄생');
-    symbolText += "죽음은 불길해 보이나 사실 '낡은 자아의 소멸'과 '완벽한 부활, 새로운 시작'을 상징합니다. ";
-  }
-  
-  if (symbols.length === 0) {
-    symbols.push('무의식의 투영과 자아');
-    symbolText = "입력하신 꿈의 핵심 상징은 억압된 감정의 분출과 강한 생명력입니다. 표면적인 현상을 넘어 현재 내면의 심리적 에너지가 매우 응축되어 있음을 상징합니다.";
-  }
-  
-  const symbolHeader = symbols.join(', ');
+  try {
+    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${OPENAI_API_KEY}`
+      },
+      body: JSON.stringify({
+        model: 'gpt-4o-mini',
+        messages: [
+          { role: 'system', content: '당신은 10만 건 이상의 전통 명리학 및 심층 심리학(프로이트, 융) 빅데이터를 학습한 신비롭고 다정한 별자리 꿈 해몽 전문가입니다. 사용자의 꿈 이야기를 듣고, 핵심 상징과 길몽/흉몽 여부, 그리고 삶에 도움이 되는 조언을 3~4문장으로 신비로운 말투로 해석해 주세요.' },
+          { role: 'user', content: text }
+        ],
+        temperature: 0.7
+      })
+    });
 
-  // Advanced Sentiment & Psychoanalysis Generator
-  const negativeKeywords = ['나무라', '나무랬', '야단', '혼나', '무서', '두려', '도망', '슬퍼', '울어', '눈물', '잃어', '떨어', '추락', '다치', '아프', '괴물', '쫓기', '불안', '짜증'];
-  const reverseKeywords = ['죽음', '죽는', '귀신', '시체', '똥', '대변', '피가', '피를', '불이', '불길', '화재'];
-  
-  let sentiment = 'positive'; 
-  if (reverseKeywords.some(kw => text.includes(kw))) {
-    sentiment = 'reverse';
-  } else if (negativeKeywords.some(kw => text.includes(kw))) {
-    sentiment = 'negative';
+    if (!response.ok) {
+      throw new Error(`API 오류: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data.choices[0].message.content;
+
+  } catch (error) {
+    console.error('Error:', error);
+    return '앗, 무의식의 바다에서 답을 찾는 중 통신 문제가 발생했어요. 잠시 후 다시 시도해 주세요.';
   }
-
-  // Create a pseudo-random hash from the input to select consistent expert phrases
-  const inputHash = Array.from(text).reduce((acc, char) => acc + char.charCodeAt(0), 0);
-  
-  const intros = [
-    "이 꿈은 귀하의 무의식이 보내는 매우 구체적이고 상징적인 메시지입니다.",
-    "표면적으로 나타난 꿈의 파편들 이면에는 귀하의 현재 심리적 방어 기제와 잠재된 욕망이 복잡하게 얽혀 있습니다.",
-    "명리학의 관점과 분석심리학의 원형(Archetype) 이론을 대입해 볼 때, 이 꿈은 중요한 인생의 전환점을 암시합니다."
-  ];
-
-  const theories = [
-    "융(C. Jung)의 관점에서 보면, 꿈에 등장한 상황은 귀하가 아직 인지하지 못한 '그림자(Shadow)'와의 직면을 의미합니다. 억눌려 있던 자아가 현실의 과제를 해결하기 위해 에너지를 방출하고 있는 과정입니다.",
-    "전통 해몽에서는 이러한 전개를 기운의 응축과 발산으로 해석합니다. 특히 음양오행의 기운이 융합하는 양상으로, 낡은 환경을 탈피하려는 강한 내적 갈등이자 변화의 전조입니다.",
-    "프로이트의 정신분석학적 측면에서 이 꿈은 최근 귀하가 겪은 특정 사건이나 인간관계의 스트레스가 꿈의 '검열' 과정을 거쳐 상징적으로 변환된 형태(Dreamwork)입니다.",
-    "명리학의 '운기' 흐름을 보면, 현재 귀하의 운세 사이클이 극적인 전환점에 서 있음을 보여줍니다. 보이지 않는 무의식의 영역에서 큰 변화의 씨앗이 트고 있는 형국입니다."
-  ];
-
-  const advices = {
-    positive: [
-      "다가오는 1~2주 내에 귀하의 숨겨진 능력이나 매력을 발휘할 결정적 기회가 찾아올 확률이 높습니다. 주저하지 말고 적극적으로 의견을 내세우십시오.",
-      "그동안 정체되어 있던 금전운이나 대인관계가 귀하의 주도하에 시원하게 풀릴 암시입니다. 새로운 도전을 하기에 최적의 타이밍이니 자신감을 가지셔도 좋습니다."
-    ],
-    negative: [
-      "당분간은 무리한 확장이나 새로운 시작보다는 내실을 다지고 건강을 챙기는 데 집중하십시오. 주변 사람들과의 사소한 오해를 경계해야 할 시기입니다.",
-      "현재 지나치게 완벽주의를 추구하거나 혼자서 모든 책임을 짊어지려 하고 있습니다. 신뢰할 수 있는 사람에게 고민을 나누는 것만으로도 막힌 기운이 풀리게 됩니다."
-    ],
-    reverse: [
-      "두렵고 불쾌했던 꿈의 감정은 오히려 현실에서 귀하를 짓누르던 무거운 책임감이나 묵은 액운이 말끔히 씻겨 내려가는 카타르시스를 의미합니다. 곧 속 시원한 희소식이 들려올 것입니다.",
-      "이러한 형태의 역몽은 주로 중요한 결정을 앞두고 겪는 심리적 '명현 현상'입니다. 귀하의 선택이 옳았음이 조만간 결과로 증명될 것이니 흔들림 없이 계획대로 추진하십시오."
-    ]
-  };
-
-  const selectedIntro = intros[inputHash % intros.length];
-  const selectedTheory = theories[(inputHash + 7) % theories.length];
-  const selectedAdvice = advices[sentiment][inputHash % advices[sentiment].length];
-
-  const analysisText = `${selectedIntro} ${selectedTheory}\n\n결론적으로 ${selectedAdvice}`;
-  
-  return `💡 [핵심 상징: ${symbolHeader}]\n${symbolText}\n\n📖 [전문가 심층 분석]\n입력하신 내용("${input}")을 바탕으로 한 입체적 분석 결과입니다.\n\n${analysisText}`;
 };
 
 function App() {
@@ -207,7 +136,7 @@ function App() {
           
           <div style={{ width: '100%', maxWidth: '400px', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 8px 30px rgba(0,0,0,0.5)', margin: '0 auto 2rem auto', backgroundColor: '#000' }}>
             <img 
-              src={`/images/${selectedDreamDetail.fileName}`} 
+              src={`images/${selectedDreamDetail.fileName}`} 
               alt={t(`commonDreams.${selectedDreamDetail.key}`)} 
               style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain' }}
             />
@@ -264,13 +193,12 @@ function App() {
                 </button>
                 <button 
                   style={{ flex: 1, background: '#f0f0f0', border: 'none', color: 'var(--text-primary)', padding: '0.8rem', borderRadius: '12px', cursor: 'pointer', fontFamily: 'inherit', fontWeight: '600', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '0.3rem', fontSize: '0.85rem' }}
-                  onClick={() => {
+                  onClick={async () => {
                     setShowPremiumPromptDetail(false);
                     setIsPremiumLoading(true);
-                    setTimeout(() => {
-                      setIsPremiumLoading(false);
-                      setPremiumResult(generateDynamicInterpretation(premiumInput));
-                    }, 2000);
+                    const resultText = await fetchOpenAIInterpretation(premiumInput);
+                    setIsPremiumLoading(false);
+                    setPremiumResult(resultText);
                   }}
                 >
                   <span style={{ fontSize: '1.2rem', color: '#ff0000' }}>▶️</span>
@@ -345,7 +273,7 @@ function App() {
               >
                 {/* 개별 이미지 렌더링 */}
                 <img 
-                  src={`/images/${dream.fileName}`} 
+                  src={`images/${dream.fileName}`} 
                   alt={t(`commonDreams.${dream.key}`)} 
                   className="dream-img" 
                 />
@@ -400,17 +328,16 @@ function App() {
               </button>
               <button 
                 style={{ flex: 1, background: '#f0f0f0', border: 'none', color: 'var(--text-primary)', padding: '0.8rem', borderRadius: '12px', cursor: 'pointer', fontFamily: 'inherit', fontWeight: '600', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '0.3rem', fontSize: '0.85rem' }}
-                onClick={() => {
+                onClick={async () => {
                   setShowPremiumPrompt(false);
                   setIsLoading(true);
-                  setTimeout(() => {
-                    setIsLoading(false);
-                    setResult({ 
-                      text: generateDynamicInterpretation(customDream), 
-                      imageUrl: null,
-                      isPremium: true
-                    });
-                  }, 2000);
+                  const resultText = await fetchOpenAIInterpretation(customDream);
+                  setIsLoading(false);
+                  setResult({ 
+                    text: resultText, 
+                    imageUrl: null,
+                    isPremium: true
+                  });
                 }}
               >
                 <span style={{ fontSize: '1.2rem', color: '#ff0000' }}>▶️</span>
