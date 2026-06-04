@@ -40,17 +40,78 @@
                 <li><a href="#services">주요 사업</a></li>
                 <li><a href="#about">회사 소개</a></li>
                 <li><a href="#contact">오시는 길</a></li>
-                <li><a href="javascript:alert('채널 개설 준비 중입니다!');" target="_blank" rel="noopener noreferrer" class="nav-youtube"><svg viewBox="0 0 24 24"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.507 9.388.507 9.388.507s7.518 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>이슈와 상식</a></li>
-                <li><a href="https://www.youtube.com/@Algorhythm_Music3" target="_blank" rel="noopener noreferrer" class="nav-youtube nav-algo"><svg viewBox="0 0 24 24"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.507 9.388.507 9.388.507s7.518 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>알고리듬</a></li>
+                <li><a href="#services" class="header-cta">우리의 사업 보기</a></li>
             </ul>
         </nav>
     </header>
 
     <section class="hero" id="home">
         <div class="hero-content" data-aos="fade-up">
-            <h2>무한한 가능성을<br>연결합니다</h2>
-            <p>IT 기술부터 공간 디자인, 미디어 콘텐츠까지.<br>유한회사 하이래빗이 당신의 비즈니스에 새로운 가치를 더합니다.</p>
-            <a href="#services" class="cta-button">우리의 사업 보기</a>
+            <h2 class="playground-title">24시 AI 놀이터</h2>
+            <div class="playground-container">
+                <!-- 하이래빗 소프트웨어 -->
+                <div class="pg-section">
+                    <h3>💻 하이래빗이 개발한 소프트웨어</h3>
+                    <div class="pg-grid">
+                        <!-- 뿅뿅비행기 -->
+                        <div class="pg-card">
+                            <div class="pg-img-wrapper"><img src="assets/game_preview.png" alt="뿅뿅비행기" class="pg-img"></div>
+                            <h4>뿅뿅비행기</h4>
+                            <div class="pg-actions">
+                                <a href="https://high-rabbitltd.com/airplane_shooter" target="_blank" class="pg-btn web">웹 플레이</a>
+                                <a href="#" class="pg-btn app" onclick="alert('앱 다운로드 준비 중입니다!')">앱 다운로드</a>
+                            </div>
+                        </div>
+                        <!-- 몽토끼 꿈풀이 -->
+                        <div class="pg-card">
+                            <div class="pg-img-wrapper"><img src="assets/rabbit.png" alt="몽토끼 꿈풀이" class="pg-img" style="object-fit: cover;"></div>
+                            <h4>몽토끼 꿈풀이</h4>
+                            <div class="pg-actions">
+                                <a href="https://high-rabbitltd.com/dreamapp" target="_blank" class="pg-btn web">웹에서 보기</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.highrabbit.dreamapp" target="_blank" class="pg-btn app">앱 다운로드</a>
+                            </div>
+                        </div>
+                        <!-- 음악 선물 앱 -->
+                        <div class="pg-card">
+                            <div class="pg-img-wrapper"><img src="assets/media.png" alt="음악 선물 앱" class="pg-img"></div>
+                            <h4>음악 선물 앱</h4>
+                            <div class="pg-actions">
+                                <span class="pg-badge">개발 중</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pg-columns">
+                    <!-- 하이래빗 유튜브 채널 -->
+                    <div class="pg-section half">
+                        <h3>📺 하이래빗 유튜브 채널</h3>
+                        <div class="pg-grid pg-grid-2">
+                            <div class="pg-card youtube-card">
+                                <div class="pg-img-wrapper"><img src="assets/media_symbol.png" alt="이슈와 상식" class="pg-img"></div>
+                                <h4>이슈와 상식</h4>
+                                <a href="https://www.youtube.com/@이슈와상식-x4f" target="_blank" class="pg-btn yt">채널 바로가기</a>
+                            </div>
+                            <div class="pg-card youtube-card">
+                                <div class="pg-img-wrapper"><img src="assets/algorhythm.png" alt="알고리듬" class="pg-img"></div>
+                                <h4>알고리듬</h4>
+                                <a href="https://www.youtube.com/@Algorhythm_Music3" target="_blank" class="pg-btn yt">채널 바로가기</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 하이래빗이 만든 음악 -->
+                    <div class="pg-section half">
+                        <h3>🎵 하이래빗이 만든 음악</h3>
+                        <div class="pg-music-banner">
+                            <div class="pg-music-content">
+                                <p>준비 중인 프리미엄 음악 감상 공간입니다.<br>곧 다양한 음악을 듣고 다운로드할 수 있습니다.</p>
+                                <a href="#" class="pg-btn music disabled">오픈 준비 중</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -72,14 +133,14 @@
                         </div>
                     </div>
                 </a>
-                <!-- 인테리어 디자인 -->
+                <!-- 건축 (시공/설계/인테리어) -->
                 <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="card-img">
-                        <img src="assets/interior.png" alt="인테리어 디자인">
+                        <img src="assets/interior.png" alt="건축">
                     </div>
                     <div class="card-content">
-                        <h3>🎨 인테리어 디자인</h3>
-                        <p>트렌디한 감각과 실용성을 바탕으로 영감을 주는 최적의 실내 공간을 디자인하고 시공합니다.</p>
+                        <h3>🏗️ 건축 (시공/설계/인테리어)</h3>
+                        <p>트렌디한 감각과 실용성을 바탕으로 영감을 주는 최적의 실내외 공간을 설계, 시공 및 디자인합니다.</p>
                     </div>
                 </div>
                 <!-- 미디어 콘텐츠 -->
@@ -94,16 +155,6 @@
                         </div>
                     </div>
                 </a>
-                <!-- E-커머스 -->
-                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="card-img">
-                        <img src="assets/ecommerce.png" alt="E-커머스 & 컨설팅">
-                    </div>
-                    <div class="card-content">
-                        <h3>🛒 E-커머스 & 컨설팅</h3>
-                        <p>전문적인 이커머스 운영과 경영 및 광고 설계 컨설팅을 통해 지속 가능한 성장을 돕습니다.</p>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -161,7 +212,7 @@
             <div class="share-section">
                 <span class="copy-label">하이래빗 채널 및 공유</span>
                 <div class="share-buttons">
-                    <a href="javascript:alert('채널 개설 준비 중입니다!');" target="_blank" rel="noopener noreferrer" class="share-btn youtube-btn">
+                    <a href="https://www.youtube.com/@이슈와상식-x4f" target="_blank" rel="noopener noreferrer" class="share-btn youtube-btn">
                         <svg viewBox="0 0 24 24"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.507 9.388.507 9.388.507s7.518 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                         이슈와 상식 유튜브
                     </a>
