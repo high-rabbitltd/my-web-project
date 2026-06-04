@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>소프트웨어 개발 | 유한회사 하이래빗</title>
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="하이래빗의 혁신적인 소프트웨어 개발 프로젝트. 모바일 게임 '뽕뽕비행기'를 포함한 최신 IT 기술 솔루션을 확인하세요.">
+    <meta name="keywords" content="하이래빗, 소프트웨어 개발, 모바일 게임, 뽕뽕비행기, IT 솔루션, 게임 개발">
+    <link rel="canonical" href="https://high-rabbitltd.com/software.html">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-page: #2c3e50; /* CI Option 6 Style */
+            --secondary-page: #34495e;
+        }
+        
+        .software-hero {
+            padding: 100px 8%;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c3e50 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .game-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            padding: 100px 8%;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .game-image img {
+            width: 100%;
+            border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .game-text h2 {
+            font-size: 3rem;
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 1.5rem;
+            color: var(--primary-page);
+        }
+
+        .game-text p {
+            font-size: 1.2rem;
+            color: #475569;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .launch-badge {
+            display: inline-block;
+            background: #4285F4; /* Google Play Blue */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-item {
+            background: #f8fafc;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .feature-item i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        @media (max-width: 992px) {
+            .game-info {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="assets/logo.png" alt="High Rabbit Logo"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html#home">홈</a></li>
+                <li><a href="index.html#services">주요 사업</a></li>
+                <li><a href="index.html#about">회사 소개</a></li>
+                <li><a href="index.html#contact">오시는 길</a></li>
+                <li><a href="javascript:alert('채널 개설 준비 중입니다!');" target="_blank" rel="noopener noreferrer" class="nav-youtube"><svg viewBox="0 0 24 24"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.507 9.388.507 9.388.507s7.518 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>이슈와 상식</a></li>
+                <li><a href="https://www.youtube.com/@Algorhythm_Music3" target="_blank" rel="noopener noreferrer" class="nav-youtube nav-algo"><svg viewBox="0 0 24 24"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.507 9.388.507 9.388.507s7.518 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>알고리듬</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="software-hero" style="background: linear-gradient(135deg, #4f46e5 0%, #db2777 100%);">
+        <div data-aos="fade-down">
+            <span class="subtitle" style="color: #ffd700;">PREMIUM MUSIC SERVICE</span>
+            <h1 style="font-size: 3.5rem; font-family: 'Montserrat', sans-serif; margin-top: 1rem;">하이래빗 프리미엄 음악</h1>
+        </div>
+    </section>
+
+    <section class="game-info">
+        <div class="game-image" data-aos="zoom-in">
+            <div style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(219, 39, 119, 0.2)); height: 400px; border-radius: 30px; border: 2px solid rgba(255, 215, 0, 0.3); display: flex; align-items: center; justify-content: center; font-size: 5rem;">
+                🎵
+            </div>
+        </div>
+        <div class="game-text" data-aos="fade-left">
+            <div style="display: flex; gap: 10px; margin-bottom: 1rem; flex-wrap: wrap;">
+                <div class="launch-badge" style="background: #e11d48; margin-bottom: 0;">오픈 준비 중</div>
+            </div>
+            <h2 style="color: #db2777;">세상에 없던 음악 선물 앱</h2>
+            <p>나만의 특별한 음악 감상, 결제 및 다운로드 기능을 제공하는 하이래빗 프리미엄 음악 서비스가 곧 찾아옵니다.</p>
+            <p>소중한 사람에게 특별한 음악을 선물할 수 있는 혁신적인 플랫폼을 기대해 주세요.</p>
+            
+            <div class="features-grid">
+                <div class="feature-item" style="background: #fff0f6;">
+                    <span>🎧</span>
+                    <h4>프리미엄 감상</h4>
+                </div>
+                <div class="feature-item" style="background: #fff0f6;">
+                    <span>💝</span>
+                    <h4>특별한 선물</h4>
+                </div>
+                <div class="feature-item" style="background: #fff0f6;">
+                    <span>⬇️</span>
+                    <h4>간편 다운로드</h4>
+                </div>
+            </div>
+
+            <div style="margin-top: 50px;">
+                <a href="index.html" class="cta-button" style="display: inline-block; padding: 15px 30px; background-color: #db2777; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">홈으로 돌아가기</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-info">
+            <p><strong>유한회사 하이래빗</strong></p>
+            <p>&copy; 2026 High Rabbit. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+</body>
+</html>
