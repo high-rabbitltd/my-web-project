@@ -949,8 +949,8 @@ nav a.header-cta::after {
     color: var(--white);
     margin: 0;
 }
-.pg-item-desc {
-    font-size: 6px;
+.pg-list-info p.pg-item-desc {
+    font-size: 11px;
     color: rgba(255,255,255,0.7);
     margin: 2px 0 5px 0;
     line-height: 1.2;
