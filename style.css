@@ -652,132 +652,319 @@ nav a.header-cta::after {
     width: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.share-icon img {
+    width: 20px;
+    filter: brightness(0) invert(1);
+}
+
+.share-icon:hover {
+    background: var(--secondary);
+    border-color: var(--secondary);
+    transform: scale(1.05);
+}
+
+.share-icon:hover img {
+    filter: brightness(0);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 60px;
+        text-align: center;
+    }
+    .about-stats {
+        justify-content: center;
+    }
+    .about-image {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 1rem 5%;
+        flex-direction: column;
+        gap: 15px;
+    }
+    nav a {
+        margin: 0 10px;
+        font-size: 0.85rem;
+    }
+    .hero h2 {
+        font-size: 2.8rem;
+    }
+    .services, .about {
+        padding: 80px 5%;
+    }
+    .about-text h2 {
+        font-size: 2rem;
+    }
+}
+
+/* YouTube Navigation & CTA Styles */
+nav a.nav-youtube {
+    color: #ff0000;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+}
+nav a.nav-youtube.nav-algo {
+    color: #8b5cf6; /* Soft violet for Algorhythm lofi lofi channel */
+}
+nav a.nav-youtube svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+    fill: currentColor;
+    transition: var(--transition);
+}
+nav a.nav-youtube:hover {
+    color: #cc0000;
+}
+nav a.nav-youtube.nav-algo:hover {
+    color: #7c3aed;
+}
+nav a.nav-youtube::after {
+    background-color: #ff0000;
+}
+nav a.nav-youtube.nav-algo::after {
+    background-color: #8b5cf6;
+}
+
+/* YouTube Share Button in Footer */
+.share-buttons .youtube-btn {
+    background: #ff0000;
+    color: var(--white);
+    border: 1px solid #ff0000;
+    box-shadow: 0 4px 14px rgba(255, 0, 0, 0.3);
+}
+.share-buttons .youtube-btn:hover {
+    background: #cc0000;
+    border-color: #cc0000;
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.45);
+}
+.share-buttons .youtube-btn svg, .share-buttons .youtube-algo-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    transition: var(--transition);
+}
+.share-buttons .youtube-btn:hover svg, .share-buttons .youtube-algo-btn:hover svg {
+    filter: none;
+}
+
+.share-buttons .youtube-algo-btn {
+    background: #8b5cf6;
+    color: var(--white);
+    border: 1px solid #8b5cf6;
+    box-shadow: 0 4px 14px rgba(139, 92, 246, 0.3);
+}
+.share-buttons .youtube-algo-btn:hover {
+    background: #7c3aed;
+    border-color: #7c3aed;
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.45);
+}
+
+/* YouTube CTA button inside subpages */
+.cta-button.youtube-cta {
+    background: #ff0000;
+    box-shadow: 0 4px 14px rgba(255, 0, 0, 0.3);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.cta-button.youtube-cta:hover {
+    background: #cc0000;
+    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.45);
+    transform: translateY(-3px);
+}
+.cta-button.youtube-cta svg, .cta-button.youtube-algo-cta svg {
+    margin-right: 8px;
+}
+
+.cta-button.youtube-algo-cta {
+    background: #8b5cf6;
+    box-shadow: 0 4px 14px rgba(139, 92, 246, 0.3);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.cta-button.youtube-algo-cta:hover {
+    background: #7c3aed;
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.45);
+    transform: translateY(-3px);
+}
+
+/* Header CTA */
+.header-cta {
+    background-color: var(--primary);
+    color: var(--white) !important;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: var(--transition);
+}
+.header-cta:hover {
+    background-color: var(--secondary);
+    color: var(--primary) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+nav a.header-cta::after {
+    display: none;
+}
+
+/* 24시 AI 놀이터 (Playground) */
+.hero-content {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.playground-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    margin-bottom: 3rem;
+    color: var(--white);
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+.playground-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     gap: 3rem;
 }
 .pg-section h3 {
     text-align: left;
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
-    color: var(--secondary);
-    border-bottom: 2px solid rgba(255,193,7, 0.3);
-    padding-bottom: 10px;
-    display: inline-block;
 }
-.pg-grid {
+.playground-container.compact {
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+    align-items: stretch;
 }
-.pg-grid-2 {
-    grid-template-columns: repeat(2, 1fr);
-}
-.pg-columns {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-}
-.pg-card {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 16px;
-    padding: 20px;
+.pg-section-compact {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 15px;
     display: flex;
     flex-direction: column;
+}
+.pg-section-compact h3 {
+    font-size: 1.1rem;
+    color: var(--secondary);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    text-align: left;
+}
+.pg-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+.pg-list-item {
+    display: flex;
     align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 8px;
+    gap: 10px;
     transition: var(--transition);
 }
-.pg-card:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+.pg-list-item:hover {
+    background: rgba(0, 0, 0, 0.4);
 }
-.pg-img-wrapper {
-    width: 100%;
-    height: 140px;
-    border-radius: 12px;
-    overflow: hidden;
-    margin-bottom: 15px;
+.pg-list-img {
+    width: 45px;
+    height: 45px;
+    border-radius: 6px;
+    object-fit: contain;
     background: #000;
 }
-.pg-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-.pg-card h4 {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-    color: var(--white);
-}
-.pg-actions {
+.pg-list-info {
     display: flex;
-    gap: 10px;
-    width: 100%;
-    margin-top: auto;
-}
-.pg-btn {
+    flex-direction: column;
     flex: 1;
-    text-align: center;
-    padding: 8px 0;
-    border-radius: 8px;
-    font-size: 0.85rem;
-    font-weight: 700;
+    gap: 5px;
+}
+.pg-list-info h4 {
+    font-size: 0.9rem;
+    color: var(--white);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.pg-actions-compact {
+    display: flex;
+    gap: 5px;
+}
+.pg-btn-sm {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
     text-decoration: none;
+    text-align: center;
     transition: var(--transition);
 }
-.pg-btn.web {
-    background: var(--secondary);
-    color: var(--primary);
-}
-.pg-btn.web:hover { background: #e5ad06; }
-.pg-btn.app {
-    background: #3b82f6;
-    color: white;
-}
-.pg-btn.app:hover { background: #2563eb; }
-.pg-btn.yt {
-    background: #ff0000;
-    color: white;
-    width: 100%;
-}
-.pg-btn.yt:hover { background: #cc0000; }
-.pg-badge {
-    flex: 1;
-    text-align: center;
-    padding: 8px 0;
-    border-radius: 8px;
-    font-size: 0.85rem;
-    font-weight: 700;
+.pg-btn-sm.web { background: var(--secondary); color: var(--primary); }
+.pg-btn-sm.web:hover { background: #e5ad06; }
+.pg-btn-sm.app { background: #3b82f6; color: white; }
+.pg-btn-sm.app:hover { background: #2563eb; }
+.pg-btn-sm.yt { background: #ff0000; color: white; width: fit-content; }
+.pg-btn-sm.yt:hover { background: #cc0000; }
+.pg-badge-sm {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
     background: rgba(255,255,255,0.2);
     color: var(--white);
+    width: fit-content;
 }
-.pg-music-banner {
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(59, 130, 246, 0.2));
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    padding: 40px 20px;
-    text-align: center;
-    height: calc(100% - 60px);
+.pg-music-banner-compact {
+    flex: 1;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(59, 130, 246, 0.15));
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    padding: 20px;
+    min-height: 100px;
 }
-.pg-music-content p {
-    font-size: 1rem;
-    opacity: 0.8;
-    margin-bottom: 20px;
-}
-.pg-btn.music.disabled {
-    background: rgba(255,255,255,0.1);
-    color: rgba(255,255,255,0.5);
-    cursor: not-allowed;
-    display: inline-block;
-    padding: 10px 30px;
+.pg-music-banner-compact p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.9);
+    margin: 0;
+    line-height: 1.4;
 }
 
 @media (max-width: 768px) {
-    .pg-grid, .pg-grid-2, .pg-columns {
+    .playground-container.compact {
         grid-template-columns: 1fr;
     }
 }
