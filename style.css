@@ -1008,4 +1008,19 @@ nav a.header-cta::after {
     .pg-columns-bottom {
         grid-template-columns: 1fr;
     }
+    header {
+        padding: 0.3rem 5%;
+    }
+    .logo img {
+        height: 40px;
+    }
+    nav a {
+        margin-left: 10px !important;
+        font-size: 12px !important;
+        white-space: nowrap;
+    }
+    .header-cta {
+        margin-left: 0 !important;
+        white-space: nowrap !important;
+    }
 }
