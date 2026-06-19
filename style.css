@@ -36,7 +36,7 @@ header {
     background: var(--glass);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    padding: 1.2rem 8%;
+    padding: 0.6rem 8%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -145,6 +145,8 @@ nav a:hover::after {
     border-radius: 12px;
     transition: var(--transition);
     box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.39);
+    white-space: nowrap;
+    display: inline-block;
 }
 
 .cta-button:hover {
