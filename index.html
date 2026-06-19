@@ -55,7 +55,11 @@
 </div>
 
 <div class="hero-content aos-init aos-animate" data-aos="fade-up">
-<h2 class="playground-title">24시 AI 놀이터</h2>
+<div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 20px;">
+    <h2 class="playground-title" style="margin-bottom: 0;">24시 AI 놀이터</h2>
+    <!-- 박스 없이 캐릭터만 보이게 (mix-blend-mode를 사용해 배경을 투명하게 처리 시도) -->
+    <video src="assets/headset_dance.mp4" autoplay loop muted playsinline style="width: 80px; height: auto; border: none; outline: none; background: transparent; mix-blend-mode: screen; filter: contrast(1.2); pointer-events: none;"></video>
+</div>
 
 <div class="playground-container compact">
 <!-- 1층 (VIP석): 음악 선물 앱 전용 배너 -->
