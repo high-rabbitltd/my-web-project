@@ -7,8 +7,16 @@
 <meta content="유한회사 하이래빗 (High Rabbit) - IT 기술, 인테리어 디자인, 미디어 콘텐츠, E-커머스 전문 프리미엄 비즈니스 솔루션 기업" name="description"/>
 <meta content="하이래빗, High Rabbit, 소프트웨어 개발, 인테리어 디자인, 미디어 콘텐츠, E-커머스, 비즈니스 솔루션" name="keywords"/>
 <link href="https://high-rabbitltd.com/" rel="canonical"/>
-<!-- Open Graph / Facebook -->
-<meta content="website" property="og:type"/>
+    <meta content="website" property="og:type"/>
+    
+    <!-- Google Analytics 4 (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S308REQR0Z"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S308REQR0Z');
+    </script>
 <meta content="https://high-rabbitltd.com/" property="og:url"/>
 <meta content="유한회사 하이래빗 (High Rabbit) | 프리미엄 비즈니스 솔루션" property="og:title"/>
 <meta content="IT 기술부터 공간 디자인, 미디어 콘텐츠까지. 하이래빗이 당신의 비즈니스에 새로운 가치를 더합니다." property="og:description"/>
@@ -31,12 +39,16 @@
 </div>
 <nav>
 <ul>
-<li><a class="" href="#home">홈</a></li>
-<li><a class="" href="#services">주요 사업</a></li>
-<li><a class="" href="#about">회사 소개</a></li>
-<li><a class="" href="#contact">오시는 길</a></li>
-<li><a class="header-cta" href="#services" style="font-size: 14px;">우리의 사업 <b>보기</b></a></li>
+<li><a class="" href="#home" data-i18n="nav_home">홈</a></li>
+<li><a class="" href="#services" data-i18n="nav_services">주요 사업</a></li>
+<li><a class="" href="#about" data-i18n="nav_about">회사 소개</a></li>
+<li><a class="" href="#contact" data-i18n="nav_contact">오시는 길</a></li>
+<li><a class="header-cta" href="#services" style="font-size: 14px;" data-i18n="hero_cta">우리의 사업 <b>보기</b></a></li>
 </ul>
+<div class="lang-switch">
+    <button class="lang-btn active" data-lang="ko" onclick="changeLang('ko')">KR</button>
+    <button class="lang-btn" data-lang="en" onclick="changeLang('en')">EN</button>
+</div>
 </nav>
 </header>
 <section class="hero" id="home">
@@ -250,6 +262,7 @@
 </footer>
 <!-- Scripts -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="lang.js"></script>
 <script>
         AOS.init({
             duration: 1000,
