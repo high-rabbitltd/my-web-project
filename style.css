@@ -613,3 +613,39 @@ nav a.nav-youtube.nav-algo::after {
     transform: translateY(-3px);
 }
 
+/* Language Switcher */
+.lang-switch {
+    display: flex;
+    gap: 6px;
+    margin-left: 20px;
+    align-items: center;
+}
+.lang-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.6);
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.lang-btn:hover {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.6);
+}
+.lang-btn.active {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .lang-switch {
+        margin-left: 0;
+        margin-top: 10px;
+        justify-content: center;
+    }
+}
+
