@@ -36,7 +36,7 @@ header {
     background: var(--glass);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    padding: 1.2rem 8%;
+    padding: 0.6rem 8%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -145,6 +145,8 @@ nav a:hover::after {
     border-radius: 12px;
     transition: var(--transition);
     box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.39);
+    white-space: nowrap;
+    display: inline-block;
 }
 
 .cta-button:hover {
@@ -613,39 +615,413 @@ nav a.nav-youtube.nav-algo::after {
     transform: translateY(-3px);
 }
 
-/* Language Switcher */
-.lang-switch {
-    display: flex;
-    gap: 6px;
-    margin-left: 20px;
-    align-items: center;
+/* Header CTA */
+.header-cta {
+    background-color: var(--primary);
+    color: var(--white) !important;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: var(--transition);
 }
-.lang-btn {
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: rgba(255, 255, 255, 0.6);
-    padding: 4px 8px;
-    border-radius: 12px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
+.header-cta:hover {
+    background-color: var(--secondary);
+    color: var(--primary) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
-.lang-btn:hover {
-    color: #fff;
-    border-color: rgba(255, 255, 255, 0.6);
-}
-.lang-btn.active {
-    background: var(--primary);
-    color: #fff;
-    border-color: var(--primary);
+nav a.header-cta::after {
+    display: none;
 }
 
-@media (max-width: 768px) {
-    .lang-switch {
-        margin-left: 0;
-        margin-top: 10px;
+/* 24시 AI 놀이터 (Playground) */
+.hero-content {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.playground-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    margin-bottom: 3rem;
+    color: var(--white);
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+.playground-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.share-icon img {
+    width: 20px;
+    filter: brightness(0) invert(1);
+}
+
+.share-icon:hover {
+    background: var(--secondary);
+    border-color: var(--secondary);
+    transform: scale(1.05);
+}
+
+.share-icon:hover img {
+    filter: brightness(0);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 60px;
+        text-align: center;
+    }
+    .about-stats {
         justify-content: center;
+    }
+    .about-image {
+        max-width: 600px;
+        margin: 0 auto;
     }
 }
 
+@media (max-width: 768px) {
+    header {
+        padding: 1rem 5%;
+        flex-direction: column;
+        gap: 15px;
+    }
+    nav a {
+        margin: 0 10px;
+        font-size: 0.85rem;
+    }
+    .hero h2 {
+        font-size: 2.8rem;
+    }
+    .services, .about {
+        padding: 80px 5%;
+    }
+    .about-text h2 {
+        font-size: 2rem;
+    }
+}
+
+/* YouTube Navigation & CTA Styles */
+nav a.nav-youtube {
+    color: #ff0000;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+}
+nav a.nav-youtube.nav-algo {
+    color: #8b5cf6; /* Soft violet for Algorhythm lofi lofi channel */
+}
+nav a.nav-youtube svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+    fill: currentColor;
+    transition: var(--transition);
+}
+nav a.nav-youtube:hover {
+    color: #cc0000;
+}
+nav a.nav-youtube.nav-algo:hover {
+    color: #7c3aed;
+}
+nav a.nav-youtube::after {
+    background-color: #ff0000;
+}
+nav a.nav-youtube.nav-algo::after {
+    background-color: #8b5cf6;
+}
+
+/* YouTube Share Button in Footer */
+.share-buttons .youtube-btn {
+    background: #ff0000;
+    color: var(--white);
+    border: 1px solid #ff0000;
+    box-shadow: 0 4px 14px rgba(255, 0, 0, 0.3);
+}
+.share-buttons .youtube-btn:hover {
+    background: #cc0000;
+    border-color: #cc0000;
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.45);
+}
+.share-buttons .youtube-btn svg, .share-buttons .youtube-algo-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    transition: var(--transition);
+}
+.share-buttons .youtube-btn:hover svg, .share-buttons .youtube-algo-btn:hover svg {
+    filter: none;
+}
+
+.share-buttons .youtube-algo-btn {
+    background: #8b5cf6;
+    color: var(--white);
+    border: 1px solid #8b5cf6;
+    box-shadow: 0 4px 14px rgba(139, 92, 246, 0.3);
+}
+.share-buttons .youtube-algo-btn:hover {
+    background: #7c3aed;
+    border-color: #7c3aed;
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.45);
+}
+
+/* YouTube CTA button inside subpages */
+.cta-button.youtube-cta {
+    background: #ff0000;
+    box-shadow: 0 4px 14px rgba(255, 0, 0, 0.3);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.cta-button.youtube-cta:hover {
+    background: #cc0000;
+    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.45);
+    transform: translateY(-3px);
+}
+.cta-button.youtube-cta svg, .cta-button.youtube-algo-cta svg {
+    margin-right: 8px;
+}
+
+.cta-button.youtube-algo-cta {
+    background: #8b5cf6;
+    box-shadow: 0 4px 14px rgba(139, 92, 246, 0.3);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.cta-button.youtube-algo-cta:hover {
+    background: #7c3aed;
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.45);
+    transform: translateY(-3px);
+}
+
+/* Header CTA */
+.header-cta {
+    background-color: var(--primary);
+    color: var(--white) !important;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: var(--transition);
+}
+.header-cta:hover {
+    background-color: var(--secondary);
+    color: var(--primary) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+nav a.header-cta::after {
+    display: none;
+}
+
+/* 24시 AI 놀이터 (Playground) */
+.hero-content {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.hero h2.playground-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px; /* Increased by 1.3x */
+    font-weight: 900;
+    margin-top: 20px;
+    margin-bottom: 1rem;
+    color: #ccff00; /* Neon/Fluorescent color */
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 6px 16px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.2);
+    align-self: flex-start;
+    display: inline-block;
+    text-shadow: 0 0 10px rgba(204, 255, 0, 0.5); /* Neon glow */
+}
+.playground-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+.pg-section h3 {
+    text-align: left;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.playground-container.compact {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.pg-section-compact {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+.pg-section-compact.vip-banner {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.25), rgba(59, 130, 246, 0.25));
+    border: 2px solid rgba(255, 215, 0, 0.4);
+    box-shadow: 0 4px 20px rgba(255, 215, 0, 0.1);
+    text-align: left;
+    padding: 25px 20px; /* Increased vertical padding to make it taller */
+    align-items: center;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+    display: block;
+}
+.pg-section-compact.vip-banner:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(255, 215, 0, 0.2);
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.35), rgba(59, 130, 246, 0.35));
+}
+.vip-content h3 {
+    font-size: 1.1rem;
+    color: #ffd700;
+    margin-bottom: 5px;
+    border: none;
+    padding: 0;
+    text-align: center;
+}
+.vip-content p.vip-desc {
+    font-size: 10px;
+    color: var(--white);
+    margin-bottom: 5px;
+    line-height: 1.3;
+}
+.pg-badge-sm.vip {
+    background: rgba(255, 215, 0, 0.2);
+    color: #ffd700;
+    border: 1px solid #ffd700;
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    display: inline-block;
+}
+.pg-columns-bottom {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+.pg-section-compact h3 {
+    font-size: 1.1rem;
+    color: var(--secondary);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    text-align: left;
+}
+.pg-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+.pg-list-item {
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 8px;
+    gap: 15px;
+    transition: var(--transition);
+}
+.pg-list-item:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
+.pg-list-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    object-fit: cover;
+    background: #000;
+    flex-shrink: 0;
+}
+.pg-list-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 5px;
+}
+.pg-list-info h4 {
+    font-size: 14px;
+    color: var(--white);
+    margin: 0 0 10px 0;
+}
+.pg-list-info p.pg-item-desc {
+    font-size: 12px;
+    color: #ffffff !important;
+    opacity: 1 !important;
+    margin: 2px 0 5px 0;
+    line-height: 1.4;
+}
+.pg-actions-compact {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 5px;
+}
+.pg-btn-sm {
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    transition: var(--transition);
+}
+.pg-btn-sm.web { background: var(--secondary); color: var(--primary); }
+.pg-btn-sm.web:hover { background: #e5ad06; }
+.pg-btn-sm.app { background: #3b82f6; color: white; }
+.pg-btn-sm.app:hover { background: #2563eb; }
+.pg-btn-sm.yt { background: #ff0000; color: white; width: fit-content; }
+.pg-btn-sm.yt:hover { background: #cc0000; }
+.pg-badge-sm {
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: rgba(255,255,255,0.2);
+    color: var(--white);
+    width: fit-content;
+}
+
+@media (max-width: 768px) {
+    .pg-columns-bottom {
+        grid-template-columns: 1fr;
+    }
+    header {
+        padding: 0.3rem 5%;
+    }
+    .logo img {
+        height: 40px;
+    }
+    nav a {
+        margin-left: 10px !important;
+        font-size: 12px !important;
+        white-space: nowrap;
+    }
+    .header-cta {
+        margin-left: 0 !important;
+        white-space: nowrap !important;
+    }
+}
