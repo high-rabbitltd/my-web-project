@@ -221,6 +221,10 @@ INDEX_TEMPLATE = """
         <h1>🐰 하이래빗 홈페이지 통합 관리자</h1>
         <p style="font-size: 16px; line-height: 1.6;">환영합니다! 아래에서 수정할 페이지를 선택하세요.<br>버튼을 누르면 실제 홈페이지 화면이 열리고, 그곳에서 <b>직접 글자를 클릭해 수정</b>할 수 있습니다.</p>
         
+        <div style="margin-top: 20px; margin-bottom: 10px;">
+            <a href="https://analytics.google.com/analytics/web/" target="_blank" class="edit-btn" style="background-color: #f59e0b; box-shadow: 0 4px 6px rgba(245, 158, 11, 0.2);">📊 구글 애널리틱스 대시보드 열기</a>
+        </div>
+        
         <div class="page-list">
             {% for filename, title in pages.items() %}
             <div class="page-card">
