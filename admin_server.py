@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os
 import subprocess
 from flask import Flask, render_template_string, request, jsonify
@@ -274,7 +275,7 @@ def edit_page(filename):
                 f.write(clean_html)
                 
             subprocess.run(['git', 'add', filename], cwd=BASE_DIR, check=True)
-            subprocess.run(['git', 'commit', '-m', f"관리자 모드 텍스트 업데이트: {filename}"], cwd=BASE_DIR, check=True)
+            subprocess.run(['git', 'commit', '--allow-empty', '-m', f"관리자 모드 텍스트 업데이트: {filename}"], cwd=BASE_DIR, check=True)
             subprocess.run(['git', 'push', 'origin', 'main'], cwd=BASE_DIR, check=True)
             
             return jsonify({'success': True})
