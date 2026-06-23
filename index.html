@@ -56,19 +56,19 @@
 <div class="shorts-corner" style="position: absolute; top: 80px; right: 5%; z-index: 50; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px;">
     <div style="position: relative;">
         <video id="heroShorts" src="assets/algorithm_shorts.mp4" autoplay loop muted playsinline style="width: 140px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.6); border: 2px solid var(--secondary); cursor: pointer; transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.3s ease;" onmouseover="if(this.style.width === '140px') this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" onclick="this.muted = !this.muted; if(!this.muted) { this.currentTime = 0; this.play(); this.style.width = '240px'; this.style.transform = 'scale(1)'; document.getElementById('shorts-badge').style.display = 'none'; document.getElementById('full-song-btn').style.display = 'flex'; } else { this.style.width = '140px'; document.getElementById('shorts-badge').style.display = 'block'; document.getElementById('full-song-btn').style.display = 'none'; }"></video>
-        <div id="shorts-badge" style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.8); padding: 4px 10px; border-radius: 20px; white-space: nowrap; font-size: 0.75rem; font-weight: bold; color: #fff; pointer-events: none; text-shadow: 0 1px 2px rgba(0,0,0,0.8);">
+        <div id="shorts-badge" style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.8); padding: 4px 10px; border-radius: 20px; white-space: nowrap; font-size: 0.75rem; font-weight: bold; color: #fff; pointer-events: none; text-shadow: 0 1px 2px rgba(0,0,0,0.8);" data-i18n="shorts_badge">
             👆 소리 켜기
         </div>
     </div>
     <a id="full-song-btn" href="https://youtu.be/fItKiQoqn7s" target="_blank" rel="noopener noreferrer" style="display: none; background: #ff0000; color: white; padding: 8px 16px; border-radius: 50px; font-weight: bold; text-decoration: none; font-size: 0.85rem; align-items: center; gap: 5px; box-shadow: 0 4px 10px rgba(255,0,0,0.3); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
         <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: currentColor;"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.507 9.388.507 9.388.507s7.518 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-        전곡 듣기
+        <span data-i18n="shorts_full">전곡 듣기</span>
     </a>
 </div>
 
 <div class="hero-content aos-init aos-animate" data-aos="fade-up">
 <div style="display: flex; align-items: center; justify-content: flex-start; gap: 10px; margin-bottom: 25px;">
-    <h2 class="playground-title" style="margin-bottom: 0; text-align: left; white-space: nowrap; font-size: clamp(1.6rem, 6vw, 2.5rem); margin-left: -10px;">24시 AI 놀이터</h2>
+    <h2 class="playground-title" style="margin-bottom: 0; text-align: left; white-space: nowrap; font-size: clamp(1.6rem, 6vw, 2.5rem); margin-left: -10px;" data-i18n="pg_title">24시 AI 놀이터</h2>
     <video src="assets/headset_dance.mp4" autoplay loop muted playsinline style="width: 25vw; max-width: 120px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.5); border: 3px solid var(--secondary);"></video>
 </div>
 
@@ -77,17 +77,17 @@
 <div class="pg-columns-bottom" style="margin-bottom: 20px;">
 <!-- 하이래빗 소프트웨어 -->
 <div class="pg-section-compact">
-<h3 class="">💻 소프트웨어</h3>
+<h3 class="" data-i18n="pg_software">💻 소프트웨어</h3>
 <div class="pg-list">
 <!-- 뿅뿅비행기 -->
 <div class="pg-list-item">
 <img alt="뿅뿅비행기" class="pg-list-img" src="assets/bbyong_new.jpg" style="object-fit: cover;"/>
 <div class="pg-list-info">
-<h4>뿅뿅비행기</h4>
-<p class="pg-item-desc"><span style="color: #ffffff;">우주선을 조종해 외계 침공을 막아내는 꿀잼 아케이드 슈팅 게임!</span><br><span style="color: #ffc107; font-weight: 600;">지금 바로 무료로 게임을 즐겨보세요!</span></p>
+<h4 data-i18n="pg_bb_title">뿅뿅비행기</h4>
+<p class="pg-item-desc"><span style="color: #ffffff;" data-i18n="pg_bb_desc1">우주선을 조종해 외계 침공을 막아내는 꿀잼 아케이드 슈팅 게임!</span><br><span style="color: #ffc107; font-weight: 600;" data-i18n="pg_bb_desc2">지금 바로 무료로 게임을 즐겨보세요!</span></p>
 <div class="pg-actions-compact">
-<a class="pg-btn-sm web" href="https://clinquant-rolypoly-16b60f.netlify.app/" target="_blank">웹 플레이</a>
-<a class="pg-btn-sm app" href="#" onclick="alert('앱 다운로드 준비 중입니다!')">앱 다운로드</a>
+<a class="pg-btn-sm web" href="https://clinquant-rolypoly-16b60f.netlify.app/" target="_blank" data-i18n="pg_btn_web">웹 플레이</a>
+<a class="pg-btn-sm app" href="#" onclick="alert('앱 다운로드 준비 중입니다!')" data-i18n="pg_btn_app">앱 다운로드</a>
 </div>
 </div>
 </div>
@@ -95,11 +95,11 @@
 <div class="pg-list-item">
 <img alt="몽토끼 꿈풀이" class="pg-list-img" src="assets/rabbit.png" style="object-fit: cover;"/>
 <div class="pg-list-info">
-<h4>몽토끼 꿈풀이</h4>
-<p class="pg-item-desc"><span style="color: #ffffff;">간밤의 꿈이 궁금할 때? AI가 당신의 꿈을 완벽하게 해몽해 드립니다.</span><br><span style="color: #ffc107; font-weight: 600;">지금 바로 무료로 꿈풀이를 해보세요!</span></p>
+<h4 data-i18n="pg_dream_title">몽토끼 꿈풀이</h4>
+<p class="pg-item-desc"><span style="color: #ffffff;" data-i18n="pg_dream_desc1">간밤의 꿈이 궁금할 때? AI가 당신의 꿈을 완벽하게 해몽해 드립니다.</span><br><span style="color: #ffc107; font-weight: 600;" data-i18n="pg_dream_desc2">지금 바로 무료로 꿈풀이를 해보세요!</span></p>
 <div class="pg-actions-compact">
-<a class="pg-btn-sm web" href="https://high-rabbitltd.com/dreamapp" target="_blank">웹 플레이</a>
-<a class="pg-btn-sm app" href="https://play.google.com/store/apps/details?id=com.highrabbit.dreamapp" target="_blank">앱 다운로드</a>
+<a class="pg-btn-sm web" href="https://high-rabbitltd.com/dreamapp" target="_blank" data-i18n="pg_btn_web">웹 플레이</a>
+<a class="pg-btn-sm app" href="https://play.google.com/store/apps/details?id=com.highrabbit.dreamapp" target="_blank" data-i18n="pg_btn_app">앱 다운로드</a>
 </div>
 </div>
 </div>
@@ -107,25 +107,25 @@
 </div>
 <!-- 하이래빗 유튜브 채널 -->
 <div class="pg-section-compact">
-<h3 class="">📺 유튜브 채널</h3>
+<h3 class="" data-i18n="pg_youtube">📺 유튜브 채널</h3>
 <div class="pg-list">
 <div class="pg-list-item">
 <img alt="이슈와 상식" class="pg-list-img" src="assets/issue_new.jpg" style="object-fit: cover;"/>
 <div class="pg-list-info">
-<h4>이슈와 상식</h4>
-<p class="pg-item-desc"><span style="color: #ffffff;">놓치기 쉬운 세상의 최신 트렌드와 알찬 필수 정보들을 한곳에.</span><br><span style="color: #ffc107; font-weight: 600;">지금 유튜브 채널 방문해서 바로 확인해 보세요!</span></p>
+<h4 data-i18n="pg_issue_title">이슈와 상식</h4>
+<p class="pg-item-desc"><span style="color: #ffffff;" data-i18n="pg_issue_desc1">놓치기 쉬운 세상의 최신 트렌드와 알찬 필수 정보들을 한곳에.</span><br><span style="color: #ffc107; font-weight: 600;" data-i18n="pg_issue_desc2">지금 유튜브 채널 방문해서 바로 확인해 보세요!</span></p>
 <div class="pg-actions-compact">
-<a class="pg-btn-sm yt" href="https://www.youtube.com/@이슈와상식-x4f" target="_blank">채널 방문</a>
+<a class="pg-btn-sm yt" href="https://www.youtube.com/@이슈와상식-x4f" target="_blank" data-i18n="pg_btn_yt">채널 방문</a>
 </div>
 </div>
 </div>
 <div class="pg-list-item">
 <img alt="알고리듬" class="pg-list-img" src="assets/algorhythm.png"/>
 <div class="pg-list-info">
-<h4>알고리듬</h4>
-<p class="pg-item-desc"><span style="color: #ffffff;">일할 때, 공부할 때, 쉴 때 듣기 좋은 하이래빗만의 프리미엄 BGM.</span><br><span style="color: #ffc107; font-weight: 600; display: block; margin-top: 5px; margin-bottom: 5px;">AI가 만든 놀라운 음악 지금 바로 들어보세요.</span><span style="color: #ffc107; font-weight: 600; display: block;">하루 종일 들어도 질리지 않는 중독성 있는 노래에 반하실 거예요!</span></p>
+<h4 data-i18n="pg_algo_title">알고리듬</h4>
+<p class="pg-item-desc"><span style="color: #ffffff;" data-i18n="pg_algo_desc1">일할 때, 공부할 때, 쉴 때 듣기 좋은 하이래빗만의 프리미엄 BGM.</span><br><span style="color: #ffc107; font-weight: 600; display: block; margin-top: 5px; margin-bottom: 5px;" data-i18n="pg_algo_desc2">AI가 만든 놀라운 음악 지금 바로 들어보세요.</span><span style="color: #ffc107; font-weight: 600; display: block;" data-i18n="pg_algo_desc3">하루 종일 들어도 질리지 않는 중독성 있는 노래에 반하실 거예요!</span></p>
 <div class="pg-actions-compact">
-<a class="pg-btn-sm yt" href="https://www.youtube.com/@Algorhythm_Music3" target="_blank">채널 방문</a>
+<a class="pg-btn-sm yt" href="https://www.youtube.com/@Algorhythm_Music3" target="_blank" data-i18n="pg_btn_yt">채널 방문</a>
 </div>
 </div>
 </div>
@@ -136,11 +136,11 @@
 <a class="pg-section-compact vip-banner" href="music.html" style="text-decoration: none;">
 <div class="vip-content" style="display: flex; align-items: center; justify-content: space-between; width: 100%; text-align: left;">
 <div class="vip-text-left" style="display: flex; flex-direction: column;">
-<h3 class="" style="text-align: left; margin-bottom: 2px;">🎵 하이래빗 프리미엄 음악</h3>
-<p class="vip-desc" style="margin-bottom: 0;">나만의 특별한 음악 감상, 세상에 없던 음악 선물 앱</p>
+<h3 class="" style="text-align: left; margin-bottom: 2px;" data-i18n="pg_vip_title">🎵 하이래빗 프리미엄 음악</h3>
+<p class="vip-desc" style="margin-bottom: 0;" data-i18n="pg_vip_desc">나만의 특별한 음악 감상, 세상에 없던 음악 선물 앱</p>
 </div>
 <div class="vip-actions">
-<span class="pg-badge-sm vip">오픈 준비 중</span>
+<span class="pg-badge-sm vip" data-i18n="pg_badge_vip">오픈 준비 중</span>
 </div>
 </div>
 </a>
@@ -255,6 +255,10 @@
 <a class="share-icon tw" href="javascript:shareTwitter()"><img alt="X" class="" src="https://cdn-icons-png.flaticon.com/512/3256/3256013.png"/></a>
 </div>
 </div>
+</div>
+<div class="footer-links" style="margin-top: 20px; text-align: center; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+    <a href="https://analytics.google.com/analytics/web/" target="_blank" style="color: #94a3b8; font-size: 13px; text-decoration: none;" data-i18n="footer_analytics">📊 구글 애널리틱스 대시보드</a>
+    <a href="http://127.0.0.1:5000" target="_blank" style="color: #94a3b8; font-size: 13px; text-decoration: none;" data-i18n="footer_admin">⚙️ 관리자 대시보드 (로컬)</a>
 </div>
 <div class="copyright">
             © 2026 High Rabbit. All rights reserved. <span class="" id="secret-admin-trigger" style="color: transparent; cursor: pointer; user-select: none;">.</span>

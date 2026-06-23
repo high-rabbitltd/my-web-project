@@ -91,12 +91,16 @@
 <li><a class="nav-youtube" href="javascript:alert('채널 개설 준비 중입니다!');" rel="noopener noreferrer" target="_blank"><svg viewbox="0 0 24 24"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.507 9.388.507 9.388.507s7.518 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>이슈와 상식</a></li>
 <li><a class="nav-youtube nav-algo" href="https://www.youtube.com/@Algorhythm_Music3" rel="noopener noreferrer" target="_blank"><svg viewbox="0 0 24 24"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.507 9.388.507 9.388.507s7.518 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>알고리듬</a></li>
 </ul>
+<div class="lang-switch">
+    <button class="lang-btn active" data-lang="ko" onclick="changeLang('ko')">KR</button>
+    <button class="lang-btn" data-lang="en" onclick="changeLang('en')">EN</button>
+</div>
 </nav>
 </header>
 <section class="media-hero">
 <div class="aos-init aos-animate" data-aos="fade-down">
 <span class="subtitle" style="color: #00ffcc;">MEDIA CONTENT</span>
-<h1 class="" style="font-size: 3.5rem; font-family: 'Montserrat', sans-serif; margin-top: 1rem;">독창적인 미디어의 세계</h1>
+<h1 class="" style="font-size: 3.5rem; font-family: 'Montserrat', sans-serif; margin-top: 1rem;" data-i18n="media_hero_title">독창적인 미디어의 세계</h1>
 </div>
 </section>
 <section class="channel-info" style="padding-bottom: 50px;">
@@ -105,30 +109,30 @@
 </div>
 <div class="channel-text aos-init aos-animate" data-aos="fade-left">
 <div class="youtube-badge">YOUTUBE CHANNEL</div>
-<h2 class="" style="font-size: 44px;">이슈와 상식</h2>
-<p class="" style="font-size: 15.2px;">세상의 복잡한 이슈를 명쾌하게 풀어내고, 꼭 알아야 할 상식을 재미있게 전달합니다. 유한회사 하이래빗이 야심차게 준비 중인 첫 번째 유튜브 프로젝트입니다.</p>
-<p class="" style="font-size: 15.2px;">지적인 호기심을 채워줄 고품격 콘텐츠를 곧 만나보실 수 있습니다.</p>
+<h2 class="" style="font-size: 44px;" data-i18n="media_issue_title">이슈와 상식</h2>
+<p class="" style="font-size: 15.2px;" data-i18n="media_issue_desc1">세상의 복잡한 이슈를 명쾌하게 풀어내고, 꼭 알아야 할 상식을 재미있게 전달합니다. 유한회사 하이래빗이 야심차게 준비 중인 첫 번째 유튜브 프로젝트입니다.</p>
+<p class="" style="font-size: 15.2px;" data-i18n="media_issue_desc2">지적인 호기심을 채워줄 고품격 콘텐츠를 곧 만나보실 수 있습니다.</p>
 <div style="display: flex; gap: 15px; margin-top: 2rem; flex-wrap: wrap;">
 <a class="cta-button youtube-cta" href="javascript:alert('채널 개설 준비 중입니다!');" rel="noopener noreferrer" style="margin-top: 0;" target="_blank">
 <svg fill="currentColor" style="width: 20px; height: 20px;" viewbox="0 0 24 24"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.507 9.388.507 9.388.507s7.518 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>
-                    유튜브 채널 방문하기
+<span data-i18n="btn_visit_yt">유튜브 채널 방문하기</span>
                 </a>
-<a class="cta-button" href="index.html" style="background: var(--primary); box-shadow: 0 4px 14px rgba(0,0,0,0.15); margin-top: 0;">홈으로 돌아가기</a>
+<a class="cta-button" href="index.html" style="background: var(--primary); box-shadow: 0 4px 14px rgba(0,0,0,0.15); margin-top: 0;" data-i18n="btn_back_home">홈으로 돌아가기</a>
 </div>
 </div>
 </section>
 <section class="channel-info" style="border-top: 1px solid rgba(0, 102, 102, 0.1); padding-top: 50px; padding-bottom: 50px;">
 <div class="channel-text aos-init aos-animate" data-aos="fade-right">
 <div class="youtube-badge" style="background: #8b5cf6; box-shadow: 0 4px 14px rgba(139, 92, 246, 0.3);">YOUTUBE CHANNEL</div>
-<h2 class="" style="font-size: 44px;">알고리듬 (Algorhythm)</h2>
-<p class="" style="font-size: 17.2px;">바쁜 일상 속, 마음을 평온하게 채워주는 감성적인 로파이(Lo-Fi) 음악과 감각적인 힐링 비주얼 아트워크를 선보입니다. 하이래빗이 직접 작곡하고 합성한 고품질 BGM 메들리를 제공합니다.</p>
-<p class="" style="font-size: 15.2px;">잔잔한 휴식과 집중이 필요할 때, 하이래빗의 음악 콘텐츠로 힐링해 보세요.</p>
+<h2 class="" style="font-size: 44px;" data-i18n="media_algo_title">알고리듬 (Algorhythm)</h2>
+<p class="" style="font-size: 17.2px;" data-i18n="media_algo_desc1">바쁜 일상 속, 마음을 평온하게 채워주는 감성적인 로파이(Lo-Fi) 음악과 감각적인 힐링 비주얼 아트워크를 선보입니다. 하이래빗이 직접 작곡하고 합성한 고품질 BGM 메들리를 제공합니다.</p>
+<p class="" style="font-size: 15.2px;" data-i18n="media_algo_desc2">잔잔한 휴식과 집중이 필요할 때, 하이래빗의 음악 콘텐츠로 힐링해 보세요.</p>
 <div style="display: flex; gap: 15px; margin-top: 2rem; flex-wrap: wrap;">
 <a class="cta-button youtube-algo-cta" href="https://www.youtube.com/@Algorhythm_Music3" rel="noopener noreferrer" style="margin-top: 0;" target="_blank">
 <svg fill="currentColor" style="width: 20px; height: 20px;" viewbox="0 0 24 24"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.507 9.388.507 9.388.507s7.518 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>
-                    유튜브 채널 방문하기
+<span data-i18n="btn_visit_yt">유튜브 채널 방문하기</span>
                 </a>
-<a class="cta-button" href="index.html" style="background: var(--primary); box-shadow: 0 4px 14px rgba(0,0,0,0.15); margin-top: 0;">홈으로 돌아가기</a>
+<a class="cta-button" href="index.html" style="background: var(--primary); box-shadow: 0 4px 14px rgba(0,0,0,0.15); margin-top: 0;" data-i18n="btn_back_home">홈으로 돌아가기</a>
 </div>
 </div>
 <div class="channel-image aos-init aos-animate" data-aos="fade-left">
@@ -136,12 +140,17 @@
 </div>
 </section>
 <footer>
+<div class="footer-links" style="margin-top: 20px; margin-bottom: 20px; text-align: center; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+    <a href="https://analytics.google.com/analytics/web/" target="_blank" style="color: #94a3b8; font-size: 13px; text-decoration: none;" data-i18n="footer_analytics">📊 구글 애널리틱스 대시보드</a>
+    <a href="http://127.0.0.1:5000" target="_blank" style="color: #94a3b8; font-size: 13px; text-decoration: none;" data-i18n="footer_admin">⚙️ 관리자 대시보드 (로컬)</a>
+</div>
 <div class="footer-info">
-<p><strong>유한회사 하이래빗</strong></p>
+<p><strong data-i18n="footer_company">유한회사 하이래빗</strong></p>
 <p class="">© 2026 High Rabbit. All rights reserved.</p>
 </div>
 </footer>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="lang.js"></script>
 <script>
         AOS.init({
             duration: 1000,
