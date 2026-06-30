@@ -24,39 +24,44 @@
 
         .channel-info {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            padding: 100px 8%;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 40px;
+            padding: 60px 8%;
             align-items: center;
-            max-width: 1200px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
         .channel-image img {
             width: 100%;
-            border-radius: 40px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            max-width: 300px;
+            display: block;
+            margin: 0 auto;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
 
         .channel-text h2 {
-            font-size: 3rem;
+            font-size: 2rem;
             font-family: 'Montserrat', sans-serif;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.8rem;
             color: var(--primary-page);
         }
 
         .channel-text p {
-            font-size: 1.2rem;
+            font-size: 1rem;
             color: #475569;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
         }
 
         .youtube-badge {
             display: inline-block;
             background: #ff0000;
             color: white;
-            padding: 10px 20px;
-            border-radius: 8px;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
             font-weight: 700;
             margin-bottom: 1rem;
         }
@@ -110,9 +115,9 @@
 </div>
 <div class="channel-text aos-init aos-animate" data-aos="fade-left">
 <div class="youtube-badge">YOUTUBE CHANNEL</div>
-<h2 class="" style="font-size: 44px;" data-i18n="media_issue_title">이슈와 상식</h2>
-<p class="" style="font-size: 15.2px;" data-i18n="media_issue_desc1">세상의 복잡한 이슈를 명쾌하게 풀어내고, 꼭 알아야 할 상식을 재미있게 전달합니다. 유한회사 하이래빗이 야심차게 준비 중인 첫 번째 유튜브 프로젝트입니다.</p>
-<p class="" style="font-size: 15.2px;" data-i18n="media_issue_desc2">지적인 호기심을 채워줄 고품격 콘텐츠를 곧 만나보실 수 있습니다.</p>
+<h2 class="" data-i18n="media_issue_title">이슈와 상식</h2>
+<p class="" data-i18n="media_issue_desc1">세상의 복잡한 이슈를 명쾌하게 풀어내고, 꼭 알아야 할 상식을 재미있게 전달합니다. 유한회사 하이래빗이 야심차게 준비 중인 첫 번째 유튜브 프로젝트입니다.</p>
+<p class="" data-i18n="media_issue_desc2">지적인 호기심을 채워줄 고품격 콘텐츠를 곧 만나보실 수 있습니다.</p>
 <div style="display: flex; gap: 15px; margin-top: 2rem; flex-wrap: wrap;">
 <a class="cta-button youtube-cta" href="javascript:alert('채널 개설 준비 중입니다!');" rel="noopener noreferrer" style="margin-top: 0;" target="_blank">
 <svg fill="currentColor" style="width: 20px; height: 20px;" viewbox="0 0 24 24"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.507 9.388.507 9.388.507s7.518 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>
@@ -125,9 +130,9 @@
 <section class="channel-info" style="border-top: 1px solid rgba(0, 102, 102, 0.1); padding-top: 50px; padding-bottom: 50px;">
 <div class="channel-text aos-init aos-animate" data-aos="fade-right">
 <div class="youtube-badge" style="background: #8b5cf6; box-shadow: 0 4px 14px rgba(139, 92, 246, 0.3);">YOUTUBE CHANNEL</div>
-<h2 class="" style="font-size: 44px;" data-i18n="media_algo_title">알고리듬 (Algorhythm)</h2>
-<p class="" style="font-size: 17.2px;" data-i18n="media_algo_desc1">바쁜 일상 속, 마음을 평온하게 채워주는 감성적인 로파이(Lo-Fi) 음악과 감각적인 힐링 비주얼 아트워크를 선보입니다. 하이래빗이 직접 작곡하고 합성한 고품질 BGM 메들리를 제공합니다.</p>
-<p class="" style="font-size: 15.2px;" data-i18n="media_algo_desc2">잔잔한 휴식과 집중이 필요할 때, 하이래빗의 음악 콘텐츠로 힐링해 보세요.</p>
+<h2 class="" data-i18n="media_algo_title">알고리듬 (Algorhythm)</h2>
+<p class="" data-i18n="media_algo_desc1">바쁜 일상 속, 마음을 평온하게 채워주는 감성적인 로파이(Lo-Fi) 음악과 감각적인 힐링 비주얼 아트워크를 선보입니다. 하이래빗이 직접 작곡하고 합성한 고품질 BGM 메들리를 제공합니다.</p>
+<p class="" data-i18n="media_algo_desc2">잔잔한 휴식과 집중이 필요할 때, 하이래빗의 음악 콘텐츠로 힐링해 보세요.</p>
 <div style="display: flex; gap: 15px; margin-top: 2rem; flex-wrap: wrap;">
 <a class="cta-button youtube-algo-cta" href="https://www.youtube.com/@Algorhythm_Music3" rel="noopener noreferrer" style="margin-top: 0;" target="_blank">
 <svg fill="currentColor" style="width: 20px; height: 20px;" viewbox="0 0 24 24"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.507 9.388.507 9.388.507s7.518 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>
@@ -146,9 +151,9 @@
 </div>
 <div class="channel-text aos-init aos-animate" data-aos="fade-left">
 <div class="youtube-badge" style="background: #eab308; box-shadow: 0 4px 14px rgba(234, 179, 8, 0.3);">YOUTUBE CHANNEL</div>
-<h2 class="" style="font-size: 44px;" data-i18n="pg_algocafe_title">알고리듬 카페</h2>
-<p class="" style="font-size: 17.2px;" data-i18n="pg_algocafe_desc1">최고의 분위기를 선사하는 프리미엄 카페 음악 전문 유튜브 채널입니다.</p>
-<p class="" style="font-size: 15.2px;" data-i18n="pg_algocafe_desc2">지금 바로 방문해서 감미로운 카페 음악을 감상해 보세요!</p>
+<h2 class="" data-i18n="pg_algocafe_title">알고리듬 카페</h2>
+<p class="" data-i18n="pg_algocafe_desc1">최고의 분위기를 선사하는 프리미엄 카페 음악 전문 유튜브 채널입니다.</p>
+<p class="" data-i18n="pg_algocafe_desc2">지금 바로 방문해서 감미로운 카페 음악을 감상해 보세요!</p>
 <div style="display: flex; gap: 15px; margin-top: 2rem; flex-wrap: wrap;">
 <a class="cta-button youtube-cta" href="https://www.youtube.com/channel/UCZXLtN4TpRFKhObOzaxytZw" rel="noopener noreferrer" style="margin-top: 0; background: #eab308; box-shadow: 0 4px 14px rgba(234, 179, 8, 0.3);" target="_blank">
 <svg fill="currentColor" style="width: 20px; height: 20px;" viewbox="0 0 24 24"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.507 9.388.507 9.388.507s7.518 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>
