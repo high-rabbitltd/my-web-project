@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<resources>
-    <string name="app_name">몽토끼 꿈풀이</string>
-    <string name="title_activity_main">몽토끼 꿈풀이</string>
-    <string name="package_name">com.highrabbit.dreamapp</string>
-    <string name="custom_url_scheme">com.highrabbit.dreamapp</string>
-</resources>
