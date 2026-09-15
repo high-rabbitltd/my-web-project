@@ -92,7 +92,7 @@
 </div>
 <!-- 보이스 캘린더 -->
 <div class="pg-list-item">
-<img alt="보이스 캘린더" class="pg-list-img" src="assets/voice_calendar.jpg" style="object-fit: cover;"/>
+<img alt="보이스 캘린더" class="pg-list-img" src="assets/voice_calendar.jpg" style="object-fit: cover; cursor: pointer; transition: transform 0.2s;" onclick="openImageModal(this.src)" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" title="클릭해서 크게 보기"/>
 <div class="pg-list-info">
 <h4 data-i18n="pg_voicecal_title">보이스 캘린더</h4>
 <p class="pg-item-desc"><span style="color: #ffffff;" data-i18n="pg_voicecal_desc1">목소리로 간편하게 일정을 관리하는 똑똑한 AI 달력 앱.</span><br><span style="color: #ffc107; font-weight: 600;" data-i18n="pg_voicecal_desc2">말로 쉽게 등록하고 똑똑하게 관리하세요!</span></p>
@@ -367,7 +367,40 @@
                 alert("비밀번호가 일치하지 않습니다.");
             }
         });
+
+        // Image Modal Script
+        function openImageModal(src) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = "block";
+            // trigger reflow
+            void modal.offsetWidth;
+            modal.classList.add('show');
+            modalImg.src = src;
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('show');
+            setTimeout(() => {
+                modal.style.display = "none";
+            }, 300);
+        }
+
+        // Close on clicking outside the image
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('imageModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeImageModal();
+                }
+            });
+        });
     </script>
 
+    <!-- Image Modal HTML -->
+    <div id="imageModal" class="img-modal">
+        <span class="img-modal-close" onclick="closeImageModal()">&times;</span>
+        <img class="img-modal-content" id="modalImage">
+    </div>
 
 </body></html>
