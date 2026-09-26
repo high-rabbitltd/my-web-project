@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>별자리 꿈해몽 - 당신의 꿈을 해석해 드립니다</title>
+    <meta name="description" content="신비로운 별빛 아래, 당신이 꾼 꿈의 의미를 찾아보세요.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="stars-bg"></div>
+    <div class="twinkling"></div>
+    
+    <main class="container">
+        <header class="app-header">
+            <h1 class="logo-title">별자리 꿈해몽</h1>
+            <p class="subtitle">어젯밤, 어떤 꿈을 꾸셨나요?</p>
+        </header>
+
+        <section class="input-section">
+            <div class="textarea-wrapper">
+                <textarea id="dreamInput" placeholder="당신의 꿈 이야기를 이곳에 적어주세요... (예: 맑은 물가에서 황금 잉어를 잡았어요.)"></textarea>
+                <div class="glow-effect"></div>
+            </div>
+            <button id="interpretBtn" class="primary-btn">
+                <span class="btn-text">해몽하기</span>
+                <span class="btn-icon">✨</span>
+            </button>
+        </section>
+
+        <section id="resultSection" class="result-section hidden">
+            <div class="result-card">
+                <h2 class="result-title">해몽 결과</h2>
+                <div class="result-content">
+                    <p id="resultText"></p>
+                </div>
+                <div class="result-tags">
+                    <span class="tag">#길몽</span>
+                    <span class="tag">#재물운</span>
+                </div>
+            </div>
+        </section>
+        
+        <div id="loadingIndicator" class="loading hidden">
+            <div class="spinner"></div>
+            <p>별들의 속삭임을 듣는 중...</p>
+        </div>
+    </main>
+
+    <script src="./app.js"></script>
+</body>
+</html>

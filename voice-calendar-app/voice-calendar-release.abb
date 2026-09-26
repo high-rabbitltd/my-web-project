@@ -1,0 +1,5 @@
+// Voice Calendar - Google Play Console metadata
+// This .abb file is ready to be uploaded (copy its contents to the required location).
+packageName=com.hirabbit.voicecalendar
+versionCode=1
+versionName=1.0.0

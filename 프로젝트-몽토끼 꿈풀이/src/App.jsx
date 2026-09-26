@@ -70,14 +70,86 @@ function App() {
   const [isListeningGrid, setIsListeningGrid] = useState(false);
   const [isListeningDetail, setIsListeningDetail] = useState(false);
   const recognitionRef = useRef(null);
+  
+  const gridTextareaRef = useRef(null);
+  const detailTextareaRef = useRef(null);
 
   const stateRef = useRef({ showPremiumPromptDetail, showPremiumPrompt, premiumInput, customDream, listeningMode: null, sttBaseText: '' });
   useEffect(() => {
     stateRef.current = { ...stateRef.current, showPremiumPromptDetail, showPremiumPrompt, premiumInput, customDream };
   }, [showPremiumPromptDetail, showPremiumPrompt, premiumInput, customDream]);
 
+  // Auto-resize and auto-scroll for grid text area
   useEffect(() => {
-    if (Capacitor.isNativePlatform()) {
+    if (gridTextareaRef.current) {
+      gridTextareaRef.current.style.height = '120px'; // Reset height briefly to measure true scrollHeight
+      const scrollHeight = gridTextareaRef.current.scrollHeight;
+      gridTextareaRef.current.style.height = Math.min(scrollHeight, 250) + 'px';
+      gridTextareaRef.current.scrollTop = gridTextareaRef.current.scrollHeight;
+    }
+  }, [customDream]);
+
+  // Auto-resize and auto-scroll for detail text area
+  useEffect(() => {
+    if (detailTextareaRef.current) {
+      detailTextareaRef.current.style.height = '100px';
+      const scrollHeight = detailTextareaRef.current.scrollHeight;
+      detailTextareaRef.current.style.height = Math.min(scrollHeight, 250) + 'px';
+      detailTextareaRef.current.scrollTop = detailTextareaRef.current.scrollHeight;
+    }
+  }, [premiumInput]);
+
+  useEffect(() => {
+    const WebSpeech = window.SpeechRecognition || window.webkitSpeechRecognition;
+    
+    // We prioritize Web Speech API on the web, but NOT on native mobile (where WebView fails to handle it)
+    if (WebSpeech && !Capacitor.isNativePlatform()) {
+      const recognition = new WebSpeech();
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      recognition.lang = i18n.language === 'ko' ? 'ko-KR' : 'en-US';
+
+      recognition.onresult = (event) => {
+        let finalTranscript = '';
+        let interimTranscript = '';
+        for (let i = event.resultIndex; i < event.results.length; ++i) {
+          if (event.results[i].isFinal) {
+            finalTranscript += event.results[i][0].transcript;
+          } else {
+            interimTranscript += event.results[i][0].transcript;
+          }
+        }
+        
+        const mode = stateRef.current.listeningMode;
+        if (mode === 'grid') {
+          setCustomDream((stateRef.current.sttBaseText || '') + finalTranscript + interimTranscript);
+          if (finalTranscript) stateRef.current.sttBaseText = (stateRef.current.sttBaseText || '') + finalTranscript + ' ';
+        } else if (mode === 'detail') {
+          setPremiumInput((stateRef.current.sttBaseText || '') + finalTranscript + interimTranscript);
+          if (finalTranscript) stateRef.current.sttBaseText = (stateRef.current.sttBaseText || '') + finalTranscript + ' ';
+        }
+      };
+
+      recognition.onerror = (event) => {
+        if (event.error === 'no-speech') return; 
+        console.error('Speech recognition error', event.error);
+      };
+      recognition.onend = () => {
+        const mode = stateRef.current.listeningMode;
+        if (mode) {
+          setTimeout(() => {
+            if (stateRef.current.listeningMode) {
+              try { recognition.start(); } catch (e) { console.warn(e); }
+            }
+          }, 100);
+        } else {
+          setIsListeningGrid(false);
+          setIsListeningDetail(false);
+        }
+      };
+      recognitionRef.current = recognition;
+    } else if (Capacitor.isNativePlatform()) {
+      // Fallback for native if Web Speech API is not available
       SpeechRecognition.addListener('partialResults', (data) => {
         if (data.matches && data.matches.length > 0) {
           const transcript = data.matches[0];
@@ -95,70 +167,26 @@ function App() {
           const mode = stateRef.current.listeningMode;
           if (mode) {
             if (mode === 'grid') {
-              stateRef.current.sttBaseText = stateRef.current.customDream + ' ';
+              stateRef.current.sttBaseText = stateRef.current.customDream + (stateRef.current.customDream.endsWith(' ') ? '' : ' ');
             } else if (mode === 'detail') {
-              stateRef.current.sttBaseText = stateRef.current.premiumInput + ' ';
+              stateRef.current.sttBaseText = stateRef.current.premiumInput + (stateRef.current.premiumInput.endsWith(' ') ? '' : ' ');
             }
-            SpeechRecognition.start({
-              language: i18n.language === 'ko' ? 'ko-KR' : 'en-US',
-              maxResults: 2,
-              prompt: '말씀해 주세요...',
-              partialResults: true,
-              popup: false,
-            }).catch(e => {
-              console.error(e);
-            });
+            setTimeout(() => {
+              if (stateRef.current.listeningMode) {
+                SpeechRecognition.start({
+                  language: i18n.language === 'ko' ? 'ko-KR' : 'en-US',
+                  maxResults: 2,
+                  prompt: '말씀해 주세요...',
+                  partialResults: true,
+                  popup: false,
+                }).catch(e => {
+                  console.error(e);
+                });
+              }
+            }, 400);
           }
         }
       });
-    } else {
-      const WebSpeech = window.SpeechRecognition || window.webkitSpeechRecognition;
-      if (WebSpeech) {
-        const recognition = new WebSpeech();
-        recognition.continuous = true;
-        recognition.interimResults = true;
-        recognition.lang = i18n.language === 'ko' ? 'ko-KR' : 'en-US';
-
-        recognition.onresult = (event) => {
-          let finalTranscript = '';
-          let interimTranscript = '';
-          for (let i = event.resultIndex; i < event.results.length; ++i) {
-            if (event.results[i].isFinal) {
-              finalTranscript += event.results[i][0].transcript;
-            } else {
-              interimTranscript += event.results[i][0].transcript;
-            }
-          }
-          
-          const mode = stateRef.current.listeningMode;
-          if (mode === 'grid') {
-            setCustomDream((stateRef.current.sttBaseText || '') + finalTranscript + interimTranscript);
-            if (finalTranscript) stateRef.current.sttBaseText = (stateRef.current.sttBaseText || '') + finalTranscript + ' ';
-          } else if (mode === 'detail') {
-            setPremiumInput((stateRef.current.sttBaseText || '') + finalTranscript + interimTranscript);
-            if (finalTranscript) stateRef.current.sttBaseText = (stateRef.current.sttBaseText || '') + finalTranscript + ' ';
-          }
-        };
-
-        recognition.onerror = (event) => {
-          if (event.error === 'no-speech') return; // Ignore no-speech and let onend restart it
-          console.error('Speech recognition error', event.error);
-        };
-        recognition.onend = () => {
-          const mode = stateRef.current.listeningMode;
-          if (mode) {
-            setTimeout(() => {
-              if (stateRef.current.listeningMode) {
-                try { recognition.start(); } catch (e) { console.warn(e); }
-              }
-            }, 100);
-          } else {
-            setIsListeningGrid(false);
-            setIsListeningDetail(false);
-          }
-        };
-        recognitionRef.current = recognition;
-      }
     }
     
     return () => {
@@ -180,8 +208,9 @@ function App() {
 
   const startListening = async (mode, currentText) => {
     stateRef.current.listeningMode = mode;
-    stateRef.current.sttBaseText = currentText ? currentText + ' ' : '';
+    stateRef.current.sttBaseText = currentText ? currentText + (currentText.endsWith(' ') ? '' : ' ') : '';
     
+    // Always request Android Audio permission via Capacitor if on native, to allow WebSpeech to work flawlessly without prompting
     if (Capacitor.isNativePlatform()) {
       try {
         const { speechRecognition } = await SpeechRecognition.checkPermissions();
@@ -192,10 +221,26 @@ function App() {
             return;
           }
         }
-        
-        if (mode === 'grid') setIsListeningGrid(true);
-        if (mode === 'detail') setIsListeningDetail(true);
-        
+      } catch (e) {
+        console.warn('Speech recognition permission check failed', e);
+      }
+    }
+
+    const WebSpeech = window.SpeechRecognition || window.webkitSpeechRecognition;
+    
+    if (WebSpeech && !Capacitor.isNativePlatform()) {
+      if (mode === 'grid') setIsListeningGrid(true);
+      if (mode === 'detail') setIsListeningDetail(true);
+      try {
+        if (recognitionRef.current) recognitionRef.current.start();
+      } catch (e) {
+        console.warn(e);
+      }
+    } else if (Capacitor.isNativePlatform()) {
+      if (mode === 'grid') setIsListeningGrid(true);
+      if (mode === 'detail') setIsListeningDetail(true);
+      
+      try {
         await SpeechRecognition.start({
           language: i18n.language === 'ko' ? 'ko-KR' : 'en-US',
           maxResults: 2,
@@ -204,22 +249,12 @@ function App() {
           popup: false,
         });
       } catch (e) {
-        console.error('Speech recognition start failed', e);
+        console.error('Native speech recognition start failed', e);
         alert('음성 인식을 시작할 수 없습니다.');
         stopListening();
       }
     } else {
-      if (!recognitionRef.current) {
-        alert('이 브라우저에서는 음성 인식을 지원하지 않습니다.');
-        return;
-      }
-      if (mode === 'grid') setIsListeningGrid(true);
-      if (mode === 'detail') setIsListeningDetail(true);
-      try {
-        recognitionRef.current.start();
-      } catch (e) {
-        console.warn(e);
-      }
+      alert('이 기기에서는 음성 인식을 지원하지 않습니다.');
     }
   };
 
@@ -450,7 +485,8 @@ function App() {
               <p style={{ color: '#ffb347', fontSize: '0.9rem', marginBottom: '1rem', fontWeight: 'bold' }}>{t('voiceGuide')}</p>
               <div style={{ position: 'relative', width: '100%' }}>
                 <textarea 
-                  style={{ width: '100%', minHeight: '100px', background: 'rgba(255,255,255,0.1)', color: '#fff', border: '1px solid #555', borderRadius: '8px', padding: '1rem 1rem 3.5rem 1rem', marginBottom: '0', fontSize: '0.95rem', outline: 'none', resize: 'vertical' }}
+                  ref={detailTextareaRef}
+                  style={{ width: '100%', minHeight: '100px', background: 'rgba(255,255,255,0.1)', color: '#fff', border: '1px solid #555', borderRadius: '8px', padding: '1rem 1rem 3.5rem 1rem', marginBottom: '0', fontSize: '0.95rem', outline: 'none', resize: 'none', overflowY: 'auto' }}
                   placeholder="예: 불이 났는데 제가 껐어요. (우측 마이크 버튼으로 편하게 말해보세요!)"
                   value={premiumInput}
                   onChange={(e) => setPremiumInput(e.target.value)}
@@ -595,7 +631,8 @@ function App() {
 
           <div style={{ position: 'relative', width: '100%' }}>
             <textarea 
-              style={{ width: '100%', minHeight: '120px', background: 'rgba(255,255,255,0.1)', color: '#fff', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '12px', padding: '1rem 1rem 3.5rem 1rem', marginBottom: '0', fontSize: '1rem', outline: 'none', resize: 'vertical' }}
+              ref={gridTextareaRef}
+              style={{ width: '100%', minHeight: '120px', background: 'rgba(255,255,255,0.1)', color: '#fff', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '12px', padding: '1rem 1rem 3.5rem 1rem', marginBottom: '0', fontSize: '1rem', outline: 'none', resize: 'none', overflowY: 'auto' }}
               placeholder={t('inputPlaceholder')}
               value={customDream}
               onChange={(e) => setCustomDream(e.target.value)}
