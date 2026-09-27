@@ -1,7 +1,0 @@
-// Voice Calendar App 배포용 .abb 파일
-// 이 파일은 Google Play Console에 업로드할 때 사용할 수 있는 메타데이터 템플릿입니다.
-// 필요에 따라 내용 수정 후 사용하세요.
-
-packageName=com.hirabbit.voicecalendar
-versionCode=1
-versionName=1.0.0
