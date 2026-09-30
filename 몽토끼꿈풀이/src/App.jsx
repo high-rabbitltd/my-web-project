@@ -10,7 +10,7 @@ const fetchOpenAIInterpretation = async (input) => {
   const text = input || "";
   
   try {
-    const response = await fetch('/api/chat', {
+    const response = await fetch('https://my-web-project-ru8i.vercel.app/api/chat', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
