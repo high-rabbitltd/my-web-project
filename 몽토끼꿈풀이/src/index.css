@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600&display=swap');
+
+:root {
+  --bg-color: #ffffff;
+  --text-primary: #111111;
+  --text-secondary: #666666;
+  --border-color: #eaeaea;
+  --accent-color: #007aff;
+  --hover-bg: #f5f5f7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Pretendard', sans-serif;
+  background: #0f1015 url('https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=1920') no-repeat center center/cover;
+  background-attachment: fixed;
+  color: #f0f0f0;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem; /* Reduced top/bottom padding */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Reduced overall gap */
+  align-items: center;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 0.5rem; /* Reduced margin */
+  width: 100%;
+}
+
+.logo-title {
+  font-size: 2rem; /* Slightly smaller to save space */
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+  color: #ffffff;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.subtitle {
+  color: #d0d0d0;
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
+/* Very Clean Grid Layout */
+.dream-selector {
+  display: grid;
+  /* Use auto-fit with a minimum of 90px to ensure 8 columns can easily fit on desktop */
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 0.2rem; /* Reduced gap between cards even further */
+  width: 100%;
+  padding: 0.2rem 0;
+  align-items: start; /* Prevent cards from stretching vertically */
+}
+
+/* Individual Image Styling */
+.dream-img {
+  width: 80px; 
+  height: 80px; 
+  object-fit: contain;
+  border-radius: 8px;
+  margin: 0 auto;
+  transition: transform 0.2s ease;
+}
+
+.dream-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.1rem; /* Extremely tight gap between image and text */
+  cursor: pointer;
+  padding: 0.2rem 0.1rem; /* Extremely tight padding */
+  border-radius: 10px;
+  height: fit-content; /* Ensure card tightly wraps content */
+  /* Frosted white glass to blend the sprite's white background */
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.2s ease;
+}
+
+.dream-card:hover {
+  background: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.dream-card.selected {
+  background: #ffffff;
+  border: 2px solid var(--accent-color);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+.dream-card:hover .dream-img {
+  transform: scale(1.1);
+}
+
+.dream-card-title {
+  font-size: 0.65rem; /* Reduced font size so it fits on one line */
+  font-weight: 700;
+  color: #111111;
+  text-align: center;
+  margin-top: 0.1rem;
+  white-space: nowrap; /* Force one line */
+  letter-spacing: -0.5px; /* Squeeze text slightly */
+}
+
+/* Common UI Elements */
+.divider {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  color: var(--text-secondary);
+  margin: 1.5rem 0;
+}
+.divider::before, .divider::after {
+  content: ''; flex: 1; border-bottom: 1px solid var(--border-color);
+}
+.divider:not(:empty)::before { margin-right: 1em; }
+.divider:not(:empty)::after { margin-left: 1em; }
+
+textarea {
+  width: 100%; height: 120px; background: #fafafa; border: 1px solid var(--border-color);
+  border-radius: 12px; padding: 1.2rem; color: var(--text-primary); font-family: inherit; font-size: 0.95rem; resize: none; outline: none;
+}
+textarea:focus { border-color: var(--accent-color); }
+
+.primary-btn {
+  background: var(--accent-color); color: #fff; border: none; border-radius: 12px; padding: 1rem 2rem;
+  font-size: 1.1rem; font-weight: 600; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 0.5rem; width: 100%;
+  transition: opacity 0.2s;
+}
+.primary-btn:hover { opacity: 0.9; }
+.primary-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.result-card {
+  width: 100%; background: #fafafa; border: 1px solid var(--border-color); border-radius: 16px; padding: 2rem; margin-top: 1rem;
+}
+
+.lang-switch {
+  position: absolute; top: 1.5rem; right: 1.5rem; background: transparent; border: 1px solid var(--border-color);
+  color: var(--text-secondary); padding: 0.4rem 1rem; border-radius: 50px; cursor: pointer; font-size: 0.8rem;
+}
